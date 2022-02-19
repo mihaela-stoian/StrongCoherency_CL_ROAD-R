@@ -41,7 +41,7 @@ class RetinaNet(nn.Module):
 
     """
 
-    def __init__(self, backbone, args):
+    def __init__(self, backbone, clayer, args):
         super(RetinaNet, self).__init__()
 
         self.num_classes = args.num_classes
@@ -53,6 +53,8 @@ class RetinaNet(nn.Module):
             self.anchors = KanchorBox()
         else:
             raise RuntimeError('Define correct anchor type')
+
+        self.clayer = clayer
             
         # print('Cell anchors\n', self.anchors.cell_anchors)
         # pdb.set_trace()
@@ -87,7 +89,7 @@ class RetinaNet(nn.Module):
 
     def forward(self, images, gt_boxes=None, gt_labels=None, ego_labels=None, counts=None, img_indexs=None, get_features=False):
         sources, ego_feat = self.backbone(images)
-        
+
         ego_preds = self.ego_head(
             ego_feat).squeeze(-1).squeeze(-1).permute(0, 2, 1).contiguous()
 
@@ -104,6 +106,8 @@ class RetinaNet(nn.Module):
         loc = torch.cat([o.view(o.size(0), o.size(1), -1) for o in loc], 2)
         conf = torch.cat([o.view(o.size(0), o.size(1), -1) for o in conf], 2)
 
+        ## TODO USE CLAYER
+        
         flat_loc = loc.view(loc.size(0), loc.size(1), -1, 4)
         flat_conf = conf.view(conf.size(0), conf.size(1), -1, self.num_classes)
 
@@ -173,5 +177,5 @@ class RetinaNet(nn.Module):
         return layers
 
 
-def build_retinanet(args):
-    return RetinaNet(backbone_models(args), args)
+def build_retinanet(args, clayer):
+    return RetinaNet(backbone_models(args), clayer, args)

@@ -14,6 +14,8 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
+from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer
+
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
 
@@ -169,8 +171,12 @@ def main():
                         type=int, help='manualseed for reproduction')
     parser.add_argument('--MULTI_GPUS', default=True, type=str2bool, help='If  more than 0 then use all visible GPUs by default only one GPU used ') 
 
-    # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
+    # CCN layer parameters 
+    parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
+    parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
+    parser.add_argument('--CCN_CLASSES', default=41, type=str, help="Number of classes to classify indexed from 0")
 
+    # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
     ## Parse arguments
     args = parser.parse_args()
@@ -188,8 +194,25 @@ def main():
     utils.setup_logger(args)
     logger = utils.get_logger(__name__)
     logger.info(sys.version)
-
+    
     assert args.MODE in ['train','val','gen_dets','eval_frames', 'eval_tubes'], 'MODE must be from ' + ','.join(['train','test','tubes'])
+
+    ## Initialise CCN Layer 
+    if args.CCN_CONSTRAINTS != '':
+        constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
+        clauses = ClausesGroup.from_constraints_group(constraints)
+        logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
+
+        strata = clauses.stratify(args.CCN_CENTRALITY)
+        logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
+
+        clayer = ConstraintsLayer(strata, args.CCN_CLASSES)
+        logger.info(str(clayer))
+    else:
+        logger.info("Using the plain model without CCN layer")
+        clayer = torch.nn.Identity()
+
+    ## Initialising other parameters ??
 
     if args.MODE == 'train':
         args.TEST_SEQ_LEN = args.SEQ_LEN
@@ -254,7 +277,7 @@ def main():
     args.head_size = 256
 
     if args.MODE in ['train', 'val','gen_dets']:
-        net = build_retinanet(args).cuda()
+        net = build_retinanet(args, clayer).cuda()
         if args.MULTI_GPUS:
             logger.info('\nLets do dataparallel\n')
             net = torch.nn.DataParallel(net)
@@ -268,7 +291,7 @@ def main():
                 net.module.backbone.apply(utils.set_bn_eval)
             else:
                 net.backbone.apply(utils.set_bn_eval)
-        train(args, net, train_dataset, val_dataset)
+        train(args, clayer, train_dataset, val_dataset)
     elif args.MODE == 'val':
         val(args, net, val_dataset)
     elif args.MODE == 'gen_dets':
