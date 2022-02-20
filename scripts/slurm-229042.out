@@ -1,0 +1,1326 @@
+Your working directories are::
+LOAD::>  /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/ 
+SAVE::>  /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/
+Your model will be initialized using /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/kinetics-pt/resnet50I3D.pth
+[INFO: main.py:  195]: 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) 
+[GCC 9.4.0]
+[INFO: datasets.py:  370]: Number of agent: all :: 11 to use: 10
+[INFO: datasets.py:  370]: Number of action: all :: 22 to use: 19
+[INFO: datasets.py:  370]: Number of loc: all :: 12 to use: 12
+[INFO: datasets.py:  370]: Number of duplex: all :: 152 to use: 39
+[INFO: datasets.py:  370]: Number of triplet: all :: 1620 to use: 68
+[INFO: datasets.py:  452]: Frames with Boxes are 4033 out of 4734 in 2014-06-25-16-45-34_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 591
+[INFO: datasets.py:  452]: Frames with Boxes are 5597 out of 6001 in 2014-07-14-14-49-50_stereo_centre_01
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5345 out of 6000 in 2014-07-14-15-42-55_stereo_centre_03
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5801 out of 6001 in 2014-08-08-13-15-11_stereo_centre_01
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 1168 out of 1168 in 2014-08-11-10-59-18_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 146
+[INFO: datasets.py:  452]: Frames with Boxes are 5134 out of 6000 in 2014-11-14-16-34-33_stereo_centre_06
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5724 out of 6000 in 2014-11-18-13-20-12_stereo_centre_05
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 4804 out of 6001 in 2014-11-21-16-07-03_stereo_centre_01
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5710 out of 6001 in 2014-12-09-13-21-02_stereo_centre_01
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5611 out of 6000 in 2015-02-03-08-45-10_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5473 out of 6000 in 2015-02-03-19-43-11_stereo_centre_04
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5431 out of 6000 in 2015-02-06-13-57-16_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5316 out of 6000 in 2015-02-13-09-16-26_stereo_centre_05
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5859 out of 6000 in 2015-02-24-12-32-19_stereo_centre_04
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: datasets.py:  452]: Frames with Boxes are 5133 out of 6001 in 2015-03-03-11-31-36_stereo_centre_01
+[INFO: datasets.py:  459]: number of start frames: 750
+[INFO: main.py:  221]: Done Loading Dataset Train Dataset
+[INFO: datasets.py:  370]: Number of agent: all :: 11 to use: 10
+[INFO: datasets.py:  370]: Number of action: all :: 22 to use: 19
+[INFO: datasets.py:  370]: Number of loc: all :: 12 to use: 12
+[INFO: datasets.py:  370]: Number of duplex: all :: 152 to use: 39
+[INFO: datasets.py:  370]: Number of triplet: all :: 1620 to use: 68
+[INFO: datasets.py:  452]: Frames with Boxes are 5307 out of 6000 in 2014-06-26-09-53-12_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 94
+[INFO: datasets.py:  452]: Frames with Boxes are 5844 out of 6000 in 2014-11-25-09-18-32_stereo_centre_04
+[INFO: datasets.py:  459]: number of start frames: 94
+[INFO: datasets.py:  452]: Frames with Boxes are 5091 out of 6000 in 2015-02-13-09-16-26_stereo_centre_02
+[INFO: datasets.py:  459]: number of start frames: 94
+[INFO: main.py:  249]: Done Loading Dataset Validation Dataset
+[INFO: main.py:  265]: Fetched 243 constraints from /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/constraints/full
+[INFO: main.py:  268]: Generated 15 strata of constraints with katz centrality
+[INFO: main.py:  271]: ConstraintsLayer(
+  (module_list): ModuleList(
+    (0): ConstraintsModule()
+    (1): ConstraintsModule()
+    (2): ConstraintsModule()
+    (3): ConstraintsModule()
+    (4): ConstraintsModule()
+    (5): ConstraintsModule()
+    (6): ConstraintsModule()
+    (7): ConstraintsModule()
+    (8): ConstraintsModule()
+    (9): ConstraintsModule()
+    (10): ConstraintsModule()
+    (11): ConstraintsModule()
+    (12): ConstraintsModule()
+    (13): ConstraintsModule()
+    (14): ConstraintsModule()
+  )
+)
+[INFO: resnetFPN.py:  275]: **LOAD STAE DICTIONARY FOR WEIGHT INITLISATIONS**
+[INFO: resnetFPN.py:  317]: conv1.weighttorch.Size([64, 3, 1, 7, 7]) ==>>torch.Size([64, 3, 1, 7, 7])
+[INFO: resnetFPN.py:  317]: bn1.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: bn1.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: bn1.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: bn1.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.0.conv1.weighttorch.Size([64, 64, 3, 1, 1]) ==>>torch.Size([64, 64, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.0.bn1.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn1.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn1.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn1.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.0.conv2.weighttorch.Size([64, 64, 1, 3, 3]) ==>>torch.Size([64, 64, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer1.0.bn2.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn2.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn2.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn2.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.0.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.0.conv3.weighttorch.Size([256, 64, 1, 1, 1]) ==>>torch.Size([256, 64, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.0.bn3.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.bn3.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.bn3.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.bn3.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.0.weighttorch.Size([256, 64, 1, 1, 1]) ==>>torch.Size([256, 64, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.0.downsample.1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.1.conv1.weighttorch.Size([64, 256, 3, 1, 1]) ==>>torch.Size([64, 256, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.1.bn1.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn1.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn1.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn1.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.1.conv2.weighttorch.Size([64, 64, 1, 3, 3]) ==>>torch.Size([64, 64, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer1.1.bn2.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn2.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn2.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn2.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.1.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.1.conv3.weighttorch.Size([256, 64, 1, 1, 1]) ==>>torch.Size([256, 64, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.1.bn3.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.1.bn3.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.1.bn3.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.1.bn3.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.1.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.2.conv1.weighttorch.Size([64, 256, 3, 1, 1]) ==>>torch.Size([64, 256, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.2.bn1.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn1.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn1.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn1.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.2.conv2.weighttorch.Size([64, 64, 1, 3, 3]) ==>>torch.Size([64, 64, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer1.2.bn2.weighttorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn2.biastorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn2.running_meantorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn2.running_vartorch.Size([64]) ==>>torch.Size([64])
+[INFO: resnetFPN.py:  317]: layer1.2.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer1.2.conv3.weighttorch.Size([256, 64, 1, 1, 1]) ==>>torch.Size([256, 64, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer1.2.bn3.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.2.bn3.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.2.bn3.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.2.bn3.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer1.2.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.0.conv1.weighttorch.Size([128, 256, 3, 1, 1]) ==>>torch.Size([128, 256, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.0.bn1.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn1.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn1.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn1.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.0.conv2.weighttorch.Size([128, 128, 1, 3, 3]) ==>>torch.Size([128, 128, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer2.0.bn2.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn2.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn2.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn2.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.0.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.0.conv3.weighttorch.Size([512, 128, 1, 1, 1]) ==>>torch.Size([512, 128, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.0.bn3.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.bn3.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.bn3.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.bn3.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.0.weighttorch.Size([512, 256, 1, 1, 1]) ==>>torch.Size([512, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.1.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.1.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.1.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.1.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.0.downsample.1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.1.conv1.weighttorch.Size([128, 512, 1, 1, 1]) ==>>torch.Size([128, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.1.bn1.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn1.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn1.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn1.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.1.conv2.weighttorch.Size([128, 128, 1, 3, 3]) ==>>torch.Size([128, 128, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer2.1.bn2.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn2.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn2.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn2.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.1.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.1.conv3.weighttorch.Size([512, 128, 1, 1, 1]) ==>>torch.Size([512, 128, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.1.bn3.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.1.bn3.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.1.bn3.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.1.bn3.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.1.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.2.conv1.weighttorch.Size([128, 512, 3, 1, 1]) ==>>torch.Size([128, 512, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.2.bn1.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn1.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn1.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn1.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.2.conv2.weighttorch.Size([128, 128, 1, 3, 3]) ==>>torch.Size([128, 128, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer2.2.bn2.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn2.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn2.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn2.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.2.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.2.conv3.weighttorch.Size([512, 128, 1, 1, 1]) ==>>torch.Size([512, 128, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.2.bn3.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.2.bn3.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.2.bn3.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.2.bn3.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.2.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.3.conv1.weighttorch.Size([128, 512, 1, 1, 1]) ==>>torch.Size([128, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.3.bn1.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn1.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn1.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn1.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.3.conv2.weighttorch.Size([128, 128, 1, 3, 3]) ==>>torch.Size([128, 128, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer2.3.bn2.weighttorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn2.biastorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn2.running_meantorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn2.running_vartorch.Size([128]) ==>>torch.Size([128])
+[INFO: resnetFPN.py:  317]: layer2.3.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer2.3.conv3.weighttorch.Size([512, 128, 1, 1, 1]) ==>>torch.Size([512, 128, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer2.3.bn3.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.3.bn3.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.3.bn3.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.3.bn3.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer2.3.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.0.conv1.weighttorch.Size([256, 512, 3, 1, 1]) ==>>torch.Size([256, 512, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.0.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.0.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.0.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.0.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.0.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.0.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.0.weighttorch.Size([1024, 512, 1, 1, 1]) ==>>torch.Size([1024, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.1.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.1.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.1.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.1.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.0.downsample.1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.1.conv1.weighttorch.Size([256, 1024, 1, 1, 1]) ==>>torch.Size([256, 1024, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.1.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.1.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.1.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.1.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.1.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.1.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.1.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.1.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.1.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.1.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.2.conv1.weighttorch.Size([256, 1024, 3, 1, 1]) ==>>torch.Size([256, 1024, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.2.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.2.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.2.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.2.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.2.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.2.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.2.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.2.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.2.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.2.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.3.conv1.weighttorch.Size([256, 1024, 1, 1, 1]) ==>>torch.Size([256, 1024, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.3.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.3.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.3.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.3.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.3.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.3.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.3.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.3.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.3.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.3.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.4.conv1.weighttorch.Size([256, 1024, 3, 1, 1]) ==>>torch.Size([256, 1024, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.4.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.4.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.4.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.4.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.4.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.4.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.4.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.4.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.4.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.4.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.5.conv1.weighttorch.Size([256, 1024, 1, 1, 1]) ==>>torch.Size([256, 1024, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.5.bn1.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn1.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn1.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn1.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.5.conv2.weighttorch.Size([256, 256, 1, 3, 3]) ==>>torch.Size([256, 256, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer3.5.bn2.weighttorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn2.biastorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn2.running_meantorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn2.running_vartorch.Size([256]) ==>>torch.Size([256])
+[INFO: resnetFPN.py:  317]: layer3.5.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer3.5.conv3.weighttorch.Size([1024, 256, 1, 1, 1]) ==>>torch.Size([1024, 256, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer3.5.bn3.weighttorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.5.bn3.biastorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.5.bn3.running_meantorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.5.bn3.running_vartorch.Size([1024]) ==>>torch.Size([1024])
+[INFO: resnetFPN.py:  317]: layer3.5.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.0.conv1.weighttorch.Size([512, 1024, 3, 1, 1]) ==>>torch.Size([512, 1024, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.0.bn1.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn1.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn1.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn1.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.0.conv2.weighttorch.Size([512, 512, 1, 3, 3]) ==>>torch.Size([512, 512, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer4.0.bn2.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn2.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn2.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn2.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.0.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.0.conv3.weighttorch.Size([2048, 512, 1, 1, 1]) ==>>torch.Size([2048, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.0.bn3.weighttorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.bn3.biastorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.bn3.running_meantorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.bn3.running_vartorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.0.weighttorch.Size([2048, 1024, 1, 1, 1]) ==>>torch.Size([2048, 1024, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.1.weighttorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.1.biastorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.1.running_meantorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.1.running_vartorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.0.downsample.1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.1.conv1.weighttorch.Size([512, 2048, 3, 1, 1]) ==>>torch.Size([512, 2048, 3, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.1.bn1.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn1.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn1.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn1.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.1.conv2.weighttorch.Size([512, 512, 1, 3, 3]) ==>>torch.Size([512, 512, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer4.1.bn2.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn2.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn2.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn2.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.1.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.1.conv3.weighttorch.Size([2048, 512, 1, 1, 1]) ==>>torch.Size([2048, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.1.bn3.weighttorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.1.bn3.biastorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.1.bn3.running_meantorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.1.bn3.running_vartorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.1.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.2.conv1.weighttorch.Size([512, 2048, 1, 1, 1]) ==>>torch.Size([512, 2048, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.2.bn1.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn1.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn1.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn1.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn1.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.2.conv2.weighttorch.Size([512, 512, 1, 3, 3]) ==>>torch.Size([512, 512, 1, 3, 3])
+[INFO: resnetFPN.py:  317]: layer4.2.bn2.weighttorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn2.biastorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn2.running_meantorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn2.running_vartorch.Size([512]) ==>>torch.Size([512])
+[INFO: resnetFPN.py:  317]: layer4.2.bn2.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  317]: layer4.2.conv3.weighttorch.Size([2048, 512, 1, 1, 1]) ==>>torch.Size([2048, 512, 1, 1, 1])
+[INFO: resnetFPN.py:  317]: layer4.2.bn3.weighttorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.2.bn3.biastorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.2.bn3.running_meantorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.2.bn3.running_vartorch.Size([2048]) ==>>torch.Size([2048])
+[INFO: resnetFPN.py:  317]: layer4.2.bn3.num_batches_trackedtorch.Size([]) ==>>torch.Size([])
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>conv6.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>conv7.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>ego_lateral.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>lateral_layer1.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>lateral_layer2.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>lateral_layer3.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>corr_layer1.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>corr_layer2.weight
+[INFO: resnetFPN.py:  319]: NAME IS NOT INPUT STATE DICT::>corr_layer3.weight
+[INFO: main.py:  281]: 
+Lets do dataparallel
+
+[INFO: main.py:  285]: ANCHOR_TYPE: RETINA
+[INFO: main.py:  285]: ARCH: resnet50
+[INFO: main.py:  285]: BATCH_SIZE: 4
+[INFO: main.py:  285]: CCN_CENTRALITY: katz
+[INFO: main.py:  285]: CCN_CONSTRAINTS: /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/constraints/full
+[INFO: main.py:  285]: CLASSWISE_NMS: False
+[INFO: main.py:  285]: CLS_HEAD_TIME_SIZE: 3
+[INFO: main.py:  285]: COMPUTE_PATHS: False
+[INFO: main.py:  285]: COMPUTE_TUBES: False
+[INFO: main.py:  285]: CONF_THRESH: 0.025
+[INFO: main.py:  285]: DATASET: road
+[INFO: main.py:  285]: DATA_ROOT: /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/
+[INFO: main.py:  285]: EVAL_EPOCHS: [30]
+[INFO: main.py:  285]: FBN: True
+[INFO: main.py:  285]: FREEZE_UPTO: 1
+[INFO: main.py:  285]: GAMMA: 0.1
+[INFO: main.py:  285]: GEN_CONF_THRESH: 0.025
+[INFO: main.py:  285]: GEN_NMS: 0.5
+[INFO: main.py:  285]: GEN_TOPK: 100
+[INFO: main.py:  285]: HEAD_LAYERS: 3
+[INFO: main.py:  285]: IOU_THRESH: 0.5
+[INFO: main.py:  285]: JOINT_4M_MARGINALS: False
+[INFO: main.py:  285]: LOG_START: 10
+[INFO: main.py:  285]: LOG_STEP: 10
+[INFO: main.py:  285]: LR: 0.0041
+[INFO: main.py:  285]: MAN_SEED: 123
+[INFO: main.py:  285]: MAX_EPOCHS: 30
+[INFO: main.py:  285]: MAX_SEQ_STEP: 1
+[INFO: main.py:  285]: MAX_SIZE: 691
+[INFO: main.py:  285]: MEANS: [0.485, 0.456, 0.406]
+[INFO: main.py:  285]: MILESTONES: [20, 25]
+[INFO: main.py:  285]: MIN_SEQ_STEP: 1
+[INFO: main.py:  285]: MIN_SIZE: 512
+[INFO: main.py:  285]: MODE: train
+[INFO: main.py:  285]: MODEL_PATH: /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/kinetics-pt/resnet50I3D.pth
+[INFO: main.py:  285]: MODEL_TYPE: I3D
+[INFO: main.py:  285]: MOMENTUM: 0.9
+[INFO: main.py:  285]: MULTI_GPUS: True
+[INFO: main.py:  285]: NEGTIVE_THRESHOLD: 0.4
+[INFO: main.py:  285]: NMS_THRESH: 0.5
+[INFO: main.py:  285]: NUM_FEATURE_MAPS: 5
+[INFO: main.py:  285]: NUM_WORKERS: 8
+[INFO: main.py:  285]: OPTIM: SGD
+[INFO: main.py:  285]: PATHS_COST_TYPE: score
+[INFO: main.py:  285]: PATHS_IOUTH: 0.5
+[INFO: main.py:  285]: PATHS_JUMP_GAP: 4
+[INFO: main.py:  285]: PATHS_MINSCORE: 0.1
+[INFO: main.py:  285]: PATHS_MIN_LEN: 6
+[INFO: main.py:  285]: POSTIVE_THRESHOLD: 0.5
+[INFO: main.py:  285]: REG_HEAD_TIME_SIZE: 3
+[INFO: main.py:  285]: RESUME: 0
+[INFO: main.py:  285]: SAVE_ROOT: /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/road/cache/resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3/
+[INFO: main.py:  285]: SEQ_LEN: 8
+[INFO: main.py:  285]: STDS: [0.229, 0.224, 0.225]
+[INFO: main.py:  285]: SUBSETS: ['val_1']
+[INFO: main.py:  285]: TENSORBOARD: 1
+[INFO: main.py:  285]: TEST_BATCH_SIZE: 1
+[INFO: main.py:  285]: TEST_SEQ_LEN: 8
+[INFO: main.py:  285]: TEST_SUBSETS: ['val_1']
+[INFO: main.py:  285]: TOPK: 10
+[INFO: main.py:  285]: TRAIN_SUBSETS: ['train_1']
+[INFO: main.py:  285]: TRIM_METHOD: none
+[INFO: main.py:  285]: TUBES_ALPHA: 0
+[INFO: main.py:  285]: TUBES_EVAL_THRESHS: [0.2, 0.5]
+[INFO: main.py:  285]: TUBES_MINLEN: 5
+[INFO: main.py:  285]: TUBES_TOPK: 10
+[INFO: main.py:  285]: VAL_STEP: 2
+[INFO: main.py:  285]: VAL_SUBSETS: ['val_1']
+[INFO: main.py:  285]: WEIGHT_DECAY: 0.0001
+[INFO: main.py:  285]: all_classes: [['agent_ness'], ['Ped', 'Car', 'Cyc', 'Mobike', 'MedVeh', 'LarVeh', 'Bus', 'EmVeh', 'TL', 'OthTL'], ['Red', 'Amber', 'Green', 'MovAway', 'MovTow', 'Mov', 'Brake', 'Stop', 'IncatLft', 'IncatRht', 'HazLit', 'TurLft', 'TurRht', 'Ovtak', 'Wait2X', 'XingFmLft', 'XingFmRht', 'Xing', 'PushObj'], ['VehLane', 'OutgoLane', 'OutgoCycLane', 'IncomLane', 'IncomCycLane', 'Pav', 'LftPav', 'RhtPav', 'Jun', 'xing', 'BusStop', 'parking'], ['Bus-MovAway', 'Bus-MovTow', 'Bus-Stop', 'Bus-XingFmLft', 'Car-Brake', 'Car-IncatLft', 'Car-IncatRht', 'Car-MovAway', 'Car-MovTow', 'Car-Stop', 'Car-TurLft', 'Car-TurRht', 'Car-XingFmLft', 'Car-XingFmRht', 'Cyc-MovAway', 'Cyc-MovTow', 'Cyc-Stop', 'Cyc-TurLft', 'Cyc-XingFmLft', 'Cyc-XingFmRht', 'LarVeh-Stop', 'MedVeh-IncatLft', 'MedVeh-MovTow', 'MedVeh-Stop', 'MedVeh-TurRht', 'OthTL-Green', 'OthTL-Red', 'Ped-Mov', 'Ped-MovAway', 'Ped-MovTow', 'Ped-PushObj', 'Ped-Stop', 'Ped-Wait2X', 'Ped-Xing', 'Ped-XingFmLft', 'Ped-XingFmRht', 'TL-Amber', 'TL-Green', 'TL-Red'], ['Bus-MovTow-IncomLane', 'Bus-MovTow-Jun', 'Bus-Stop-IncomLane', 'Bus-Stop-VehLane', 'Bus-XingFmLft-Jun', 'Car-Brake-Jun', 'Car-Brake-VehLane', 'Car-IncatLft-Jun', 'Car-IncatLft-VehLane', 'Car-IncatRht-IncomLane', 'Car-IncatRht-Jun', 'Car-MovAway-Jun', 'Car-MovAway-OutgoLane', 'Car-MovAway-VehLane', 'Car-MovTow-IncomLane', 'Car-MovTow-Jun', 'Car-Stop-IncomLane', 'Car-Stop-Jun', 'Car-Stop-VehLane', 'Car-TurLft-Jun', 'Car-TurLft-VehLane', 'Car-TurRht-IncomLane', 'Car-TurRht-Jun', 'Car-XingFmLft-Jun', 'Cyc-MovAway-Jun', 'Cyc-MovAway-LftPav', 'Cyc-MovAway-OutgoCycLane', 'Cyc-MovAway-OutgoLane', 'Cyc-MovAway-VehLane', 'Cyc-MovTow-IncomCycLane', 'Cyc-MovTow-IncomLane', 'Cyc-MovTow-Jun', 'Cyc-MovTow-LftPav', 'Cyc-Stop-IncomCycLane', 'Cyc-Stop-IncomLane', 'Cyc-Stop-Jun', 'Cyc-TurLft-Jun', 'Cyc-XingFmLft-Jun', 'MedVeh-MovTow-IncomLane', 'MedVeh-MovTow-Jun', 'MedVeh-Stop-IncomLane', 'MedVeh-Stop-Jun', 'MedVeh-TurRht-Jun', 'Ped-Mov-Pav', 'Ped-MovAway-LftPav', 'Ped-MovAway-Pav', 'Ped-MovAway-RhtPav', 'Ped-MovTow-IncomLane', 'Ped-MovTow-LftPav', 'Ped-MovTow-RhtPav', 'Ped-MovTow-VehLane', 'Ped-PushObj-LftPav', 'Ped-PushObj-RhtPav', 'Ped-Stop-BusStop', 'Ped-Stop-LftPav', 'Ped-Stop-Pav', 'Ped-Stop-RhtPav', 'Ped-Stop-VehLane', 'Ped-Wait2X-LftPav', 'Ped-Wait2X-RhtPav', 'Ped-XingFmLft-IncomLane', 'Ped-XingFmLft-Jun', 'Ped-XingFmLft-VehLane', 'Ped-XingFmLft-xing', 'Ped-XingFmRht-IncomLane', 'Ped-XingFmRht-Jun', 'Ped-XingFmRht-RhtPav', 'Ped-XingFmRht-VehLane']]
+[INFO: main.py:  285]: ar: 9
+[INFO: main.py:  285]: ego_classes: ['AV-Stop', 'AV-Mov', 'AV-TurRht', 'AV-TurLft', 'AV-MovRht', 'AV-MovLft', 'AV-Ovtak']
+[INFO: main.py:  285]: exp_name: resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3
+[INFO: main.py:  285]: head_size: 256
+[INFO: main.py:  285]: hostname: dgk516
+[INFO: main.py:  285]: label_types: ['agent_ness', 'agent', 'action', 'loc', 'duplex', 'triplet']
+[INFO: main.py:  285]: log_dir: logs/resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3/
+[INFO: main.py:  285]: model_3d_layers: [[0, 1, 2], [0, 2], [0, 2, 4], [0, 1]]
+[INFO: main.py:  285]: model_init: kinetics
+[INFO: main.py:  285]: model_perms: [3, 4, 6, 3]
+[INFO: main.py:  285]: model_subtype: I3D
+[INFO: main.py:  285]: non_local_inds: [[], [], [], []]
+[INFO: main.py:  285]: num_classes: 149
+[INFO: main.py:  285]: num_classes_list: [1, 10, 19, 12, 39, 68]
+[INFO: main.py:  285]: num_ego_classes: 7
+[INFO: main.py:  285]: num_label_types: 6
+[INFO: main.py:  285]: user: aat50-ttl04
+module.backbone.layer1.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.conv6.weight is trained at the rate of 0.0041
+module.backbone.conv7.weight is trained at the rate of 0.0041
+module.backbone.ego_lateral.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer1.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer2.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer3.weight is trained at the rate of 0.0041
+module.backbone.corr_layer1.weight is trained at the rate of 0.0041
+module.backbone.corr_layer2.weight is trained at the rate of 0.0041
+module.backbone.corr_layer3.weight is trained at the rate of 0.0041
+module.reg_heads.0.weight is trained at the rate of 0.0041
+module.reg_heads.0.bias is trained at the rate of 0.0082
+module.reg_heads.2.weight is trained at the rate of 0.0041
+module.reg_heads.2.bias is trained at the rate of 0.0082
+module.reg_heads.4.weight is trained at the rate of 0.0041
+module.reg_heads.4.bias is trained at the rate of 0.0082
+module.reg_heads.6.weight is trained at the rate of 0.0041
+module.reg_heads.6.bias is trained at the rate of 0.0082
+module.cls_heads.0.weight is trained at the rate of 0.0041
+module.cls_heads.0.bias is trained at the rate of 0.0082
+module.cls_heads.2.weight is trained at the rate of 0.0041
+module.cls_heads.2.bias is trained at the rate of 0.0082
+module.cls_heads.4.weight is trained at the rate of 0.0041
+module.cls_heads.4.bias is trained at the rate of 0.0082
+module.cls_heads.6.weight is trained at the rate of 0.0041
+module.cls_heads.6.bias is trained at the rate of 0.0082
+module.ego_head.weight is trained at the rate of 0.0041
+module.ego_head.bias is trained at the rate of 0.0082
+[INFO: train.py:   44]: DataParallel(
+  (module): RetinaNet(
+    (anchors): anchorBox(
+      (cell_anchors): BufferList()
+    )
+    (clayer): ConstraintsLayer(
+      (module_list): ModuleList(
+        (0): ConstraintsModule()
+        (1): ConstraintsModule()
+        (2): ConstraintsModule()
+        (3): ConstraintsModule()
+        (4): ConstraintsModule()
+        (5): ConstraintsModule()
+        (6): ConstraintsModule()
+        (7): ConstraintsModule()
+        (8): ConstraintsModule()
+        (9): ConstraintsModule()
+        (10): ConstraintsModule()
+        (11): ConstraintsModule()
+        (12): ConstraintsModule()
+        (13): ConstraintsModule()
+        (14): ConstraintsModule()
+      )
+    )
+    (backbone): ResNetFPN(
+      (conv1): Conv3d(3, 64, kernel_size=(1, 7, 7), stride=(1, 2, 2), padding=(0, 3, 3), bias=False)
+      (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (pool1): MaxPool3d(kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 0, 0), dilation=1, ceil_mode=False)
+      (layer1): Sequential(
+        (0): BottleneckI3D(
+          (conv1): Conv3d(64, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+            (1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BottleneckI3D(
+          (conv1): Conv3d(256, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): BottleneckI3D(
+          (conv1): Conv3d(256, 64, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(64, 64, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(64, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (pool2): MaxPool3d(kernel_size=(2, 1, 1), stride=(2, 1, 1), padding=(0, 0, 0), dilation=1, ceil_mode=False)
+      (layer2): Sequential(
+        (0): BottleneckI3D(
+          (conv1): Conv3d(256, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv3d(256, 512, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+            (1): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BottleneckI3D(
+          (conv1): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): BottleneckI3D(
+          (conv1): Conv3d(512, 128, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (3): BottleneckI3D(
+          (conv1): Conv3d(512, 128, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(128, 128, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(128, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (layer3): Sequential(
+        (0): BottleneckI3D(
+          (conv1): Conv3d(512, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv3d(512, 1024, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+            (1): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BottleneckI3D(
+          (conv1): Conv3d(1024, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): BottleneckI3D(
+          (conv1): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (3): BottleneckI3D(
+          (conv1): Conv3d(1024, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (4): BottleneckI3D(
+          (conv1): Conv3d(1024, 256, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (5): BottleneckI3D(
+          (conv1): Conv3d(1024, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(256, 1024, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(1024, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (layer4): Sequential(
+        (0): BottleneckI3D(
+          (conv1): Conv3d(1024, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+          (downsample): Sequential(
+            (0): Conv3d(1024, 2048, kernel_size=(1, 1, 1), stride=(1, 2, 2), bias=False)
+            (1): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          )
+        )
+        (1): BottleneckI3D(
+          (conv1): Conv3d(2048, 512, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0), bias=False)
+          (bn1): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+        (2): BottleneckI3D(
+          (conv1): Conv3d(2048, 512, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn1): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv2): Conv3d(512, 512, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+          (bn2): BatchNorm3d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (conv3): Conv3d(512, 2048, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+          (bn3): BatchNorm3d(2048, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU(inplace=True)
+        )
+      )
+      (conv6): Conv3d(2048, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+      (conv7): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), padding=(0, 1, 1), bias=False)
+      (ego_lateral): Conv3d(2048, 256, kernel_size=(1, 3, 3), stride=(1, 2, 2), bias=False)
+      (avg_pool): AdaptiveAvgPool3d(output_size=(None, 1, 1))
+      (lateral_layer1): Conv3d(2048, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+      (lateral_layer2): Conv3d(1024, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+      (lateral_layer3): Conv3d(512, 256, kernel_size=(1, 1, 1), stride=(1, 1, 1), bias=False)
+      (corr_layer1): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+      (corr_layer2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+      (corr_layer3): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1), bias=False)
+    )
+    (reg_heads): Sequential(
+      (0): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (1): ReLU(inplace=True)
+      (2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (3): ReLU(inplace=True)
+      (4): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (5): ReLU(inplace=True)
+      (6): Conv3d(256, 36, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    )
+    (cls_heads): Sequential(
+      (0): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (1): ReLU(inplace=True)
+      (2): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (3): ReLU(inplace=True)
+      (4): Conv3d(256, 256, kernel_size=(1, 3, 3), stride=(1, 1, 1), padding=(0, 1, 1))
+      (5): ReLU(inplace=True)
+      (6): Conv3d(256, 1341, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+    )
+    (criterion): FocalLoss()
+    (ego_head): Conv3d(256, 7, kernel_size=(3, 1, 1), stride=(1, 1, 1), padding=(1, 0, 0))
+  )
+)
+[INFO: train.py:   45]: 
+
+Solver configs are as follow 
+
+
+module.backbone.layer1.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer1.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer1.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer2.3.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.3.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.4.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer3.5.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.0.downsample.0.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.1.conv3.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv1.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv2.weight is trained at the rate of 0.0041
+module.backbone.layer4.2.conv3.weight is trained at the rate of 0.0041
+module.backbone.conv6.weight is trained at the rate of 0.0041
+module.backbone.conv7.weight is trained at the rate of 0.0041
+module.backbone.ego_lateral.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer1.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer2.weight is trained at the rate of 0.0041
+module.backbone.lateral_layer3.weight is trained at the rate of 0.0041
+module.backbone.corr_layer1.weight is trained at the rate of 0.0041
+module.backbone.corr_layer2.weight is trained at the rate of 0.0041
+module.backbone.corr_layer3.weight is trained at the rate of 0.0041
+module.reg_heads.0.weight is trained at the rate of 0.0041
+module.reg_heads.0.bias is trained at the rate of 0.0082
+module.reg_heads.2.weight is trained at the rate of 0.0041
+module.reg_heads.2.bias is trained at the rate of 0.0082
+module.reg_heads.4.weight is trained at the rate of 0.0041
+module.reg_heads.4.bias is trained at the rate of 0.0082
+module.reg_heads.6.weight is trained at the rate of 0.0041
+module.reg_heads.6.bias is trained at the rate of 0.0082
+module.cls_heads.0.weight is trained at the rate of 0.0041
+module.cls_heads.0.bias is trained at the rate of 0.0082
+module.cls_heads.2.weight is trained at the rate of 0.0041
+module.cls_heads.2.bias is trained at the rate of 0.0082
+module.cls_heads.4.weight is trained at the rate of 0.0041
+module.cls_heads.4.bias is trained at the rate of 0.0082
+module.cls_heads.6.weight is trained at the rate of 0.0041
+module.cls_heads.6.bias is trained at the rate of 0.0082
+module.ego_head.weight is trained at the rate of 0.0041
+module.ego_head.bias is trained at the rate of 0.0082
+optimizer is SGD
+Done solver configs
+
+
+[INFO: train.py:   48]: train_1 179591 label: ind=00 name:Ped
+train_1 92894 label: ind=01 name:Car
+train_1 46460 label: ind=02 name:Cyc
+train_1 01017 label: ind=03 name:Mobike
+train_1 15373 label: ind=04 name:MedVeh
+train_1 05560 label: ind=05 name:LarVeh
+train_1 10161 label: ind=06 name:Bus
+train_1 00352 label: ind=07 name:EmVeh
+train_1 48329 label: ind=08 name:TL
+train_1 16837 label: ind=09 name:OthTL
+train_1 39406 label: ind=00 name:Red
+train_1 05808 label: ind=01 name:Amber
+train_1 19310 label: ind=02 name:Green
+train_1 127014 label: ind=03 name:MovAway
+train_1 111222 label: ind=04 name:MovTow
+train_1 07782 label: ind=05 name:Mov
+train_1 17958 label: ind=06 name:Brake
+train_1 80904 label: ind=07 name:Stop
+train_1 03163 label: ind=08 name:IncatLft
+train_1 05392 label: ind=09 name:IncatRht
+train_1 02140 label: ind=10 name:HazLit
+train_1 03953 label: ind=11 name:TurLft
+train_1 05858 label: ind=12 name:TurRht
+train_1 00747 label: ind=13 name:Ovtak
+train_1 09695 label: ind=14 name:Wait2X
+train_1 15687 label: ind=15 name:XingFmLft
+train_1 10813 label: ind=16 name:XingFmRht
+train_1 04800 label: ind=17 name:Xing
+train_1 03896 label: ind=18 name:PushObj
+train_1 68123 label: ind=00 name:VehLane
+train_1 12096 label: ind=01 name:OutgoLane
+train_1 08112 label: ind=02 name:OutgoCycLane
+train_1 52842 label: ind=03 name:IncomLane
+train_1 05141 label: ind=04 name:IncomCycLane
+train_1 14178 label: ind=05 name:Pav
+train_1 86065 label: ind=06 name:LftPav
+train_1 58897 label: ind=07 name:RhtPav
+train_1 51765 label: ind=08 name:Jun
+train_1 10501 label: ind=09 name:xing
+train_1 03097 label: ind=10 name:BusStop
+train_1 00682 label: ind=11 name:parking
+train_1 02669 label: ind=00 name:Bus-MovAway
+train_1 03049 label: ind=01 name:Bus-MovTow
+train_1 03345 label: ind=02 name:Bus-Stop
+train_1 00531 label: ind=03 name:Bus-XingFmLft
+train_1 15747 label: ind=04 name:Car-Brake
+train_1 01633 label: ind=05 name:Car-IncatLft
+train_1 03816 label: ind=06 name:Car-IncatRht
+train_1 30281 label: ind=07 name:Car-MovAway
+train_1 22701 label: ind=08 name:Car-MovTow
+train_1 34742 label: ind=09 name:Car-Stop
+train_1 02255 label: ind=10 name:Car-TurLft
+train_1 03671 label: ind=11 name:Car-TurRht
+train_1 04034 label: ind=12 name:Car-XingFmLft
+train_1 02785 label: ind=13 name:Car-XingFmRht
+train_1 20949 label: ind=14 name:Cyc-MovAway
+train_1 10736 label: ind=15 name:Cyc-MovTow
+train_1 12046 label: ind=16 name:Cyc-Stop
+train_1 01043 label: ind=17 name:Cyc-TurLft
+train_1 01048 label: ind=18 name:Cyc-XingFmLft
+train_1 01753 label: ind=19 name:Cyc-XingFmRht
+train_1 02715 label: ind=20 name:LarVeh-Stop
+train_1 00339 label: ind=21 name:MedVeh-IncatLft
+train_1 03901 label: ind=22 name:MedVeh-MovTow
+train_1 06412 label: ind=23 name:MedVeh-Stop
+train_1 00561 label: ind=24 name:MedVeh-TurRht
+train_1 04631 label: ind=25 name:OthTL-Green
+train_1 11303 label: ind=26 name:OthTL-Red
+train_1 07782 label: ind=27 name:Ped-Mov
+train_1 66719 label: ind=28 name:Ped-MovAway
+train_1 69771 label: ind=29 name:Ped-MovTow
+train_1 03896 label: ind=30 name:Ped-PushObj
+train_1 20670 label: ind=31 name:Ped-Stop
+train_1 09388 label: ind=32 name:Ped-Wait2X
+train_1 04588 label: ind=33 name:Ped-Xing
+train_1 09663 label: ind=34 name:Ped-XingFmLft
+train_1 05192 label: ind=35 name:Ped-XingFmRht
+train_1 05047 label: ind=36 name:TL-Amber
+train_1 14679 label: ind=37 name:TL-Green
+train_1 28103 label: ind=38 name:TL-Red
+train_1 02384 label: ind=00 name:Bus-MovTow-IncomLane
+train_1 00654 label: ind=01 name:Bus-MovTow-Jun
+train_1 01082 label: ind=02 name:Bus-Stop-IncomLane
+train_1 00735 label: ind=03 name:Bus-Stop-VehLane
+train_1 00531 label: ind=04 name:Bus-XingFmLft-Jun
+train_1 02313 label: ind=05 name:Car-Brake-Jun
+train_1 12774 label: ind=06 name:Car-Brake-VehLane
+train_1 01005 label: ind=07 name:Car-IncatLft-Jun
+train_1 00457 label: ind=08 name:Car-IncatLft-VehLane
+train_1 00871 label: ind=09 name:Car-IncatRht-IncomLane
+train_1 02706 label: ind=10 name:Car-IncatRht-Jun
+train_1 07371 label: ind=11 name:Car-MovAway-Jun
+train_1 02766 label: ind=12 name:Car-MovAway-OutgoLane
+train_1 22492 label: ind=13 name:Car-MovAway-VehLane
+train_1 18947 label: ind=14 name:Car-MovTow-IncomLane
+train_1 04841 label: ind=15 name:Car-MovTow-Jun
+train_1 13100 label: ind=16 name:Car-Stop-IncomLane
+train_1 08175 label: ind=17 name:Car-Stop-Jun
+train_1 12468 label: ind=18 name:Car-Stop-VehLane
+train_1 01782 label: ind=19 name:Car-TurLft-Jun
+train_1 00775 label: ind=20 name:Car-TurLft-VehLane
+train_1 00210 label: ind=21 name:Car-TurRht-IncomLane
+train_1 03256 label: ind=22 name:Car-TurRht-Jun
+train_1 03941 label: ind=23 name:Car-XingFmLft-Jun
+train_1 03917 label: ind=24 name:Cyc-MovAway-Jun
+train_1 01219 label: ind=25 name:Cyc-MovAway-LftPav
+train_1 06907 label: ind=26 name:Cyc-MovAway-OutgoCycLane
+train_1 00679 label: ind=27 name:Cyc-MovAway-OutgoLane
+train_1 10463 label: ind=28 name:Cyc-MovAway-VehLane
+train_1 03728 label: ind=29 name:Cyc-MovTow-IncomCycLane
+train_1 05133 label: ind=30 name:Cyc-MovTow-IncomLane
+train_1 01618 label: ind=31 name:Cyc-MovTow-Jun
+train_1 00625 label: ind=32 name:Cyc-MovTow-LftPav
+train_1 00533 label: ind=33 name:Cyc-Stop-IncomCycLane
+train_1 00932 label: ind=34 name:Cyc-Stop-IncomLane
+train_1 02838 label: ind=35 name:Cyc-Stop-Jun
+train_1 00873 label: ind=36 name:Cyc-TurLft-Jun
+train_1 00669 label: ind=37 name:Cyc-XingFmLft-Jun
+train_1 03218 label: ind=38 name:MedVeh-MovTow-IncomLane
+train_1 00543 label: ind=39 name:MedVeh-MovTow-Jun
+train_1 02388 label: ind=40 name:MedVeh-Stop-IncomLane
+train_1 00916 label: ind=41 name:MedVeh-Stop-Jun
+train_1 00491 label: ind=42 name:MedVeh-TurRht-Jun
+train_1 05735 label: ind=43 name:Ped-Mov-Pav
+train_1 35787 label: ind=44 name:Ped-MovAway-LftPav
+train_1 02254 label: ind=45 name:Ped-MovAway-Pav
+train_1 23525 label: ind=46 name:Ped-MovAway-RhtPav
+train_1 00282 label: ind=47 name:Ped-MovTow-IncomLane
+train_1 36114 label: ind=48 name:Ped-MovTow-LftPav
+train_1 27615 label: ind=49 name:Ped-MovTow-RhtPav
+train_1 00449 label: ind=50 name:Ped-MovTow-VehLane
+train_1 01797 label: ind=51 name:Ped-PushObj-LftPav
+train_1 00803 label: ind=52 name:Ped-PushObj-RhtPav
+train_1 01553 label: ind=53 name:Ped-Stop-BusStop
+train_1 09194 label: ind=54 name:Ped-Stop-LftPav
+train_1 03203 label: ind=55 name:Ped-Stop-Pav
+train_1 05683 label: ind=56 name:Ped-Stop-RhtPav
+train_1 00586 label: ind=57 name:Ped-Stop-VehLane
+train_1 04284 label: ind=58 name:Ped-Wait2X-LftPav
+train_1 01761 label: ind=59 name:Ped-Wait2X-RhtPav
+train_1 01191 label: ind=60 name:Ped-XingFmLft-IncomLane
+train_1 01516 label: ind=61 name:Ped-XingFmLft-Jun
+train_1 01214 label: ind=62 name:Ped-XingFmLft-VehLane
+train_1 05581 label: ind=63 name:Ped-XingFmLft-xing
+train_1 00305 label: ind=64 name:Ped-XingFmRht-IncomLane
+train_1 00939 label: ind=65 name:Ped-XingFmRht-Jun
+train_1 00119 label: ind=66 name:Ped-XingFmRht-RhtPav
+train_1 00696 label: ind=67 name:Ped-XingFmRht-VehLane
+Number of ids are 10487
+
+[INFO: train.py:   49]: val_1 18949 label: ind=00 name:Ped
+val_1 11032 label: ind=01 name:Car
+val_1 06139 label: ind=02 name:Cyc
+val_1 02121 label: ind=03 name:Mobike
+val_1 09895 label: ind=04 name:MedVeh
+val_1 00633 label: ind=05 name:LarVeh
+val_1 01834 label: ind=06 name:Bus
+val_1 00000 label: ind=07 name:EmVeh
+val_1 07690 label: ind=08 name:TL
+val_1 01810 label: ind=09 name:OthTL
+val_1 06309 label: ind=00 name:Red
+val_1 00381 label: ind=01 name:Amber
+val_1 02810 label: ind=02 name:Green
+val_1 14699 label: ind=03 name:MovAway
+val_1 13921 label: ind=04 name:MovTow
+val_1 01587 label: ind=05 name:Mov
+val_1 01097 label: ind=06 name:Brake
+val_1 16895 label: ind=07 name:Stop
+val_1 01884 label: ind=08 name:IncatLft
+val_1 02015 label: ind=09 name:IncatRht
+val_1 01000 label: ind=10 name:HazLit
+val_1 00772 label: ind=11 name:TurLft
+val_1 00704 label: ind=12 name:TurRht
+val_1 00202 label: ind=13 name:Ovtak
+val_1 00819 label: ind=14 name:Wait2X
+val_1 02102 label: ind=15 name:XingFmLft
+val_1 01360 label: ind=16 name:XingFmRht
+val_1 00337 label: ind=17 name:Xing
+val_1 00629 label: ind=18 name:PushObj
+val_1 11895 label: ind=00 name:VehLane
+val_1 02051 label: ind=01 name:OutgoLane
+val_1 01020 label: ind=02 name:OutgoCycLane
+val_1 10912 label: ind=03 name:IncomLane
+val_1 00627 label: ind=04 name:IncomCycLane
+val_1 01952 label: ind=05 name:Pav
+val_1 08726 label: ind=06 name:LftPav
+val_1 07092 label: ind=07 name:RhtPav
+val_1 11783 label: ind=08 name:Jun
+val_1 00142 label: ind=09 name:xing
+val_1 00328 label: ind=10 name:BusStop
+val_1 00066 label: ind=11 name:parking
+val_1 00623 label: ind=00 name:Bus-MovAway
+val_1 00283 label: ind=01 name:Bus-MovTow
+val_1 00675 label: ind=02 name:Bus-Stop
+val_1 00277 label: ind=03 name:Bus-XingFmLft
+val_1 00666 label: ind=04 name:Car-Brake
+val_1 00515 label: ind=05 name:Car-IncatLft
+val_1 00288 label: ind=06 name:Car-IncatRht
+val_1 01697 label: ind=07 name:Car-MovAway
+val_1 02973 label: ind=08 name:Car-MovTow
+val_1 05097 label: ind=09 name:Car-Stop
+val_1 00321 label: ind=10 name:Car-TurLft
+val_1 00317 label: ind=11 name:Car-TurRht
+val_1 00625 label: ind=12 name:Car-XingFmLft
+val_1 00658 label: ind=13 name:Car-XingFmRht
+val_1 02091 label: ind=14 name:Cyc-MovAway
+val_1 01833 label: ind=15 name:Cyc-MovTow
+val_1 01721 label: ind=16 name:Cyc-Stop
+val_1 00172 label: ind=17 name:Cyc-TurLft
+val_1 00333 label: ind=18 name:Cyc-XingFmLft
+val_1 00161 label: ind=19 name:Cyc-XingFmRht
+val_1 00272 label: ind=20 name:LarVeh-Stop
+val_1 01355 label: ind=21 name:MedVeh-IncatLft
+val_1 01318 label: ind=22 name:MedVeh-MovTow
+val_1 05178 label: ind=23 name:MedVeh-Stop
+val_1 00317 label: ind=24 name:MedVeh-TurRht
+val_1 00523 label: ind=25 name:OthTL-Green
+val_1 01287 label: ind=26 name:OthTL-Red
+val_1 01587 label: ind=27 name:Ped-Mov
+val_1 07124 label: ind=28 name:Ped-MovAway
+val_1 07119 label: ind=29 name:Ped-MovTow
+val_1 00629 label: ind=30 name:Ped-PushObj
+val_1 02292 label: ind=31 name:Ped-Stop
+val_1 00819 label: ind=32 name:Ped-Wait2X
+val_1 00337 label: ind=33 name:Ped-Xing
+val_1 00447 label: ind=34 name:Ped-XingFmLft
+val_1 00380 label: ind=35 name:Ped-XingFmRht
+val_1 00381 label: ind=36 name:TL-Amber
+val_1 02287 label: ind=37 name:TL-Green
+val_1 05022 label: ind=38 name:TL-Red
+val_1 00270 label: ind=00 name:Bus-MovTow-IncomLane
+val_1 00050 label: ind=01 name:Bus-MovTow-Jun
+val_1 00091 label: ind=02 name:Bus-Stop-IncomLane
+val_1 00311 label: ind=03 name:Bus-Stop-VehLane
+val_1 00277 label: ind=04 name:Bus-XingFmLft-Jun
+val_1 00348 label: ind=05 name:Car-Brake-Jun
+val_1 00490 label: ind=06 name:Car-Brake-VehLane
+val_1 00122 label: ind=07 name:Car-IncatLft-Jun
+val_1 00302 label: ind=08 name:Car-IncatLft-VehLane
+val_1 00181 label: ind=09 name:Car-IncatRht-IncomLane
+val_1 00107 label: ind=10 name:Car-IncatRht-Jun
+val_1 00945 label: ind=11 name:Car-MovAway-Jun
+val_1 00082 label: ind=12 name:Car-MovAway-OutgoLane
+val_1 00721 label: ind=13 name:Car-MovAway-VehLane
+val_1 02717 label: ind=14 name:Car-MovTow-IncomLane
+val_1 00339 label: ind=15 name:Car-MovTow-Jun
+val_1 02614 label: ind=16 name:Car-Stop-IncomLane
+val_1 01192 label: ind=17 name:Car-Stop-Jun
+val_1 01038 label: ind=18 name:Car-Stop-VehLane
+val_1 00283 label: ind=19 name:Car-TurLft-Jun
+val_1 00033 label: ind=20 name:Car-TurLft-VehLane
+val_1 00012 label: ind=21 name:Car-TurRht-IncomLane
+val_1 00305 label: ind=22 name:Car-TurRht-Jun
+val_1 00625 label: ind=23 name:Car-XingFmLft-Jun
+val_1 00532 label: ind=24 name:Cyc-MovAway-Jun
+val_1 00014 label: ind=25 name:Cyc-MovAway-LftPav
+val_1 00662 label: ind=26 name:Cyc-MovAway-OutgoCycLane
+val_1 00038 label: ind=27 name:Cyc-MovAway-OutgoLane
+val_1 01226 label: ind=28 name:Cyc-MovAway-VehLane
+val_1 00280 label: ind=29 name:Cyc-MovTow-IncomCycLane
+val_1 01253 label: ind=30 name:Cyc-MovTow-IncomLane
+val_1 00308 label: ind=31 name:Cyc-MovTow-Jun
+val_1 00047 label: ind=32 name:Cyc-MovTow-LftPav
+val_1 00074 label: ind=33 name:Cyc-Stop-IncomCycLane
+val_1 00424 label: ind=34 name:Cyc-Stop-IncomLane
+val_1 00977 label: ind=35 name:Cyc-Stop-Jun
+val_1 00149 label: ind=36 name:Cyc-TurLft-Jun
+val_1 00333 label: ind=37 name:Cyc-XingFmLft-Jun
+val_1 01149 label: ind=38 name:MedVeh-MovTow-IncomLane
+val_1 00379 label: ind=39 name:MedVeh-MovTow-Jun
+val_1 01217 label: ind=40 name:MedVeh-Stop-IncomLane
+val_1 00983 label: ind=41 name:MedVeh-Stop-Jun
+val_1 00293 label: ind=42 name:MedVeh-TurRht-Jun
+val_1 01461 label: ind=43 name:Ped-Mov-Pav
+val_1 04063 label: ind=44 name:Ped-MovAway-LftPav
+val_1 00023 label: ind=45 name:Ped-MovAway-Pav
+val_1 02871 label: ind=46 name:Ped-MovAway-RhtPav
+val_1 00005 label: ind=47 name:Ped-MovTow-IncomLane
+val_1 03601 label: ind=48 name:Ped-MovTow-LftPav
+val_1 03234 label: ind=49 name:Ped-MovTow-RhtPav
+val_1 00085 label: ind=50 name:Ped-MovTow-VehLane
+val_1 00439 label: ind=51 name:Ped-PushObj-LftPav
+val_1 00125 label: ind=52 name:Ped-PushObj-RhtPav
+val_1 00019 label: ind=53 name:Ped-Stop-BusStop
+val_1 00901 label: ind=54 name:Ped-Stop-LftPav
+val_1 00397 label: ind=55 name:Ped-Stop-Pav
+val_1 00884 label: ind=56 name:Ped-Stop-RhtPav
+val_1 00084 label: ind=57 name:Ped-Stop-VehLane
+val_1 00580 label: ind=58 name:Ped-Wait2X-LftPav
+val_1 00066 label: ind=59 name:Ped-Wait2X-RhtPav
+val_1 00027 label: ind=60 name:Ped-XingFmLft-IncomLane
+val_1 00341 label: ind=61 name:Ped-XingFmLft-Jun
+val_1 00095 label: ind=62 name:Ped-XingFmLft-VehLane
+val_1 00142 label: ind=63 name:Ped-XingFmLft-xing
+val_1 00093 label: ind=64 name:Ped-XingFmRht-IncomLane
+val_1 00052 label: ind=65 name:Ped-XingFmRht-Jun
+val_1 00003 label: ind=66 name:Ped-XingFmRht-RhtPav
+val_1 00185 label: ind=67 name:Ped-XingFmRht-VehLane
+Number of ids are 282
+
+[INFO: train.py:   54]: ANCHOR_TYPE: RETINA
+[INFO: train.py:   54]: ARCH: resnet50
+[INFO: train.py:   54]: BATCH_SIZE: 4
+[INFO: train.py:   54]: CCN_CENTRALITY: katz
+[INFO: train.py:   54]: CCN_CONSTRAINTS: /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/constraints/full
+[INFO: train.py:   54]: CLASSWISE_NMS: False
+[INFO: train.py:   54]: CLS_HEAD_TIME_SIZE: 3
+[INFO: train.py:   54]: COMPUTE_PATHS: False
+[INFO: train.py:   54]: COMPUTE_TUBES: False
+[INFO: train.py:   54]: CONF_THRESH: 0.025
+[INFO: train.py:   54]: DATASET: road
+[INFO: train.py:   54]: DATA_ROOT: /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/
+[INFO: train.py:   54]: EVAL_EPOCHS: [30]
+[INFO: train.py:   54]: FBN: True
+[INFO: train.py:   54]: FREEZE_UPTO: 1
+[INFO: train.py:   54]: GAMMA: 0.1
+[INFO: train.py:   54]: GEN_CONF_THRESH: 0.025
+[INFO: train.py:   54]: GEN_NMS: 0.5
+[INFO: train.py:   54]: GEN_TOPK: 100
+[INFO: train.py:   54]: HEAD_LAYERS: 3
+[INFO: train.py:   54]: IOU_THRESH: 0.5
+[INFO: train.py:   54]: JOINT_4M_MARGINALS: False
+[INFO: train.py:   54]: LOG_START: 10
+[INFO: train.py:   54]: LOG_STEP: 10
+[INFO: train.py:   54]: LR: 0.0041
+[INFO: train.py:   54]: MAN_SEED: 123
+[INFO: train.py:   54]: MAX_EPOCHS: 30
+[INFO: train.py:   54]: MAX_ITERS: 78630
+[INFO: train.py:   54]: MAX_SEQ_STEP: 1
+[INFO: train.py:   54]: MAX_SIZE: 691
+[INFO: train.py:   54]: MEANS: [0.485, 0.456, 0.406]
+[INFO: train.py:   54]: MILESTONES: [20, 25]
+[INFO: train.py:   54]: MIN_SEQ_STEP: 1
+[INFO: train.py:   54]: MIN_SIZE: 512
+[INFO: train.py:   54]: MODE: train
+[INFO: train.py:   54]: MODEL_PATH: /jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/kinetics-pt/resnet50I3D.pth
+[INFO: train.py:   54]: MODEL_TYPE: I3D
+[INFO: train.py:   54]: MOMENTUM: 0.9
+[INFO: train.py:   54]: MULTI_GPUS: True
+[INFO: train.py:   54]: NEGTIVE_THRESHOLD: 0.4
+[INFO: train.py:   54]: NMS_THRESH: 0.5
+[INFO: train.py:   54]: NUM_FEATURE_MAPS: 5
+[INFO: train.py:   54]: NUM_WORKERS: 8
+[INFO: train.py:   54]: OPTIM: SGD
+[INFO: train.py:   54]: PATHS_COST_TYPE: score
+[INFO: train.py:   54]: PATHS_IOUTH: 0.5
+[INFO: train.py:   54]: PATHS_JUMP_GAP: 4
+[INFO: train.py:   54]: PATHS_MINSCORE: 0.1
+[INFO: train.py:   54]: PATHS_MIN_LEN: 6
+[INFO: train.py:   54]: POSTIVE_THRESHOLD: 0.5
+[INFO: train.py:   54]: REG_HEAD_TIME_SIZE: 3
+[INFO: train.py:   54]: RESUME: 0
+[INFO: train.py:   54]: SAVE_ROOT: /jmain02/home/J2AD009/ttl04/aat50-ttl04/road-dataset/road/cache/resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3/
+[INFO: train.py:   54]: SEQ_LEN: 8
+[INFO: train.py:   54]: START_EPOCH: 1
+[INFO: train.py:   54]: STDS: [0.229, 0.224, 0.225]
+[INFO: train.py:   54]: SUBSETS: ['val_1']
+[INFO: train.py:   54]: TENSORBOARD: 1
+[INFO: train.py:   54]: TEST_BATCH_SIZE: 1
+[INFO: train.py:   54]: TEST_SEQ_LEN: 8
+[INFO: train.py:   54]: TEST_SUBSETS: ['val_1']
+[INFO: train.py:   54]: TOPK: 10
+[INFO: train.py:   54]: TRAIN_SUBSETS: ['train_1']
+[INFO: train.py:   54]: TRIM_METHOD: none
+[INFO: train.py:   54]: TUBES_ALPHA: 0
+[INFO: train.py:   54]: TUBES_EVAL_THRESHS: [0.2, 0.5]
+[INFO: train.py:   54]: TUBES_MINLEN: 5
+[INFO: train.py:   54]: TUBES_TOPK: 10
+[INFO: train.py:   54]: VAL_STEP: 2
+[INFO: train.py:   54]: VAL_SUBSETS: ['val_1']
+[INFO: train.py:   54]: WEIGHT_DECAY: 0.0001
+[INFO: train.py:   54]: all_classes: [['agent_ness'], ['Ped', 'Car', 'Cyc', 'Mobike', 'MedVeh', 'LarVeh', 'Bus', 'EmVeh', 'TL', 'OthTL'], ['Red', 'Amber', 'Green', 'MovAway', 'MovTow', 'Mov', 'Brake', 'Stop', 'IncatLft', 'IncatRht', 'HazLit', 'TurLft', 'TurRht', 'Ovtak', 'Wait2X', 'XingFmLft', 'XingFmRht', 'Xing', 'PushObj'], ['VehLane', 'OutgoLane', 'OutgoCycLane', 'IncomLane', 'IncomCycLane', 'Pav', 'LftPav', 'RhtPav', 'Jun', 'xing', 'BusStop', 'parking'], ['Bus-MovAway', 'Bus-MovTow', 'Bus-Stop', 'Bus-XingFmLft', 'Car-Brake', 'Car-IncatLft', 'Car-IncatRht', 'Car-MovAway', 'Car-MovTow', 'Car-Stop', 'Car-TurLft', 'Car-TurRht', 'Car-XingFmLft', 'Car-XingFmRht', 'Cyc-MovAway', 'Cyc-MovTow', 'Cyc-Stop', 'Cyc-TurLft', 'Cyc-XingFmLft', 'Cyc-XingFmRht', 'LarVeh-Stop', 'MedVeh-IncatLft', 'MedVeh-MovTow', 'MedVeh-Stop', 'MedVeh-TurRht', 'OthTL-Green', 'OthTL-Red', 'Ped-Mov', 'Ped-MovAway', 'Ped-MovTow', 'Ped-PushObj', 'Ped-Stop', 'Ped-Wait2X', 'Ped-Xing', 'Ped-XingFmLft', 'Ped-XingFmRht', 'TL-Amber', 'TL-Green', 'TL-Red'], ['Bus-MovTow-IncomLane', 'Bus-MovTow-Jun', 'Bus-Stop-IncomLane', 'Bus-Stop-VehLane', 'Bus-XingFmLft-Jun', 'Car-Brake-Jun', 'Car-Brake-VehLane', 'Car-IncatLft-Jun', 'Car-IncatLft-VehLane', 'Car-IncatRht-IncomLane', 'Car-IncatRht-Jun', 'Car-MovAway-Jun', 'Car-MovAway-OutgoLane', 'Car-MovAway-VehLane', 'Car-MovTow-IncomLane', 'Car-MovTow-Jun', 'Car-Stop-IncomLane', 'Car-Stop-Jun', 'Car-Stop-VehLane', 'Car-TurLft-Jun', 'Car-TurLft-VehLane', 'Car-TurRht-IncomLane', 'Car-TurRht-Jun', 'Car-XingFmLft-Jun', 'Cyc-MovAway-Jun', 'Cyc-MovAway-LftPav', 'Cyc-MovAway-OutgoCycLane', 'Cyc-MovAway-OutgoLane', 'Cyc-MovAway-VehLane', 'Cyc-MovTow-IncomCycLane', 'Cyc-MovTow-IncomLane', 'Cyc-MovTow-Jun', 'Cyc-MovTow-LftPav', 'Cyc-Stop-IncomCycLane', 'Cyc-Stop-IncomLane', 'Cyc-Stop-Jun', 'Cyc-TurLft-Jun', 'Cyc-XingFmLft-Jun', 'MedVeh-MovTow-IncomLane', 'MedVeh-MovTow-Jun', 'MedVeh-Stop-IncomLane', 'MedVeh-Stop-Jun', 'MedVeh-TurRht-Jun', 'Ped-Mov-Pav', 'Ped-MovAway-LftPav', 'Ped-MovAway-Pav', 'Ped-MovAway-RhtPav', 'Ped-MovTow-IncomLane', 'Ped-MovTow-LftPav', 'Ped-MovTow-RhtPav', 'Ped-MovTow-VehLane', 'Ped-PushObj-LftPav', 'Ped-PushObj-RhtPav', 'Ped-Stop-BusStop', 'Ped-Stop-LftPav', 'Ped-Stop-Pav', 'Ped-Stop-RhtPav', 'Ped-Stop-VehLane', 'Ped-Wait2X-LftPav', 'Ped-Wait2X-RhtPav', 'Ped-XingFmLft-IncomLane', 'Ped-XingFmLft-Jun', 'Ped-XingFmLft-VehLane', 'Ped-XingFmLft-xing', 'Ped-XingFmRht-IncomLane', 'Ped-XingFmRht-Jun', 'Ped-XingFmRht-RhtPav', 'Ped-XingFmRht-VehLane']]
+[INFO: train.py:   54]: ar: 9
+[INFO: train.py:   54]: ego_classes: ['AV-Stop', 'AV-Mov', 'AV-TurRht', 'AV-TurLft', 'AV-MovRht', 'AV-MovLft', 'AV-Ovtak']
+[INFO: train.py:   54]: exp_name: resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3
+[INFO: train.py:   54]: head_size: 256
+[INFO: train.py:   54]: hostname: dgk516
+[INFO: train.py:   54]: label_types: ['agent_ness', 'agent', 'action', 'loc', 'duplex', 'triplet']
+[INFO: train.py:   54]: log_dir: logs/resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3/
+[INFO: train.py:   54]: model_3d_layers: [[0, 1, 2], [0, 2], [0, 2, 4], [0, 1]]
+[INFO: train.py:   54]: model_init: kinetics
+[INFO: train.py:   54]: model_perms: [3, 4, 6, 3]
+[INFO: train.py:   54]: model_subtype: I3D
+[INFO: train.py:   54]: non_local_inds: [[], [], [], []]
+[INFO: train.py:   54]: num_classes: 149
+[INFO: train.py:   54]: num_classes_list: [1, 10, 19, 12, 39, 68]
+[INFO: train.py:   54]: num_ego_classes: 7
+[INFO: train.py:   54]: num_label_types: 6
+[INFO: train.py:   54]: sw: <tensorboardX.writer.SummaryWriter object at 0x7fc217005c10>
+[INFO: train.py:   54]: user: aat50-ttl04
+[INFO: train.py:   56]: EXPERIMENT NAME:: resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3
+[INFO: train.py:   59]: Training FPN with resnet50 + I3D as backbone 
+/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/utils/data/dataloader.py:477: UserWarning: This DataLoader will create 8 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  cpuset_checked))
+Traceback (most recent call last):
+  File "main.py", line 307, in <module>
+    main()
+  File "main.py", line 293, in main
+    train(args, net, train_dataset, val_dataset)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/train.py", line 78, in train
+    iteration = run_train(args, train_data_loader, net, optimizer, epoch, iteration) 
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/train.py", line 110, in run_train
+    loss_l, loss_c = net(images, gt_boxes, gt_labels, ego_labels, counts, img_indexs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 167, in forward
+    outputs = self.parallel_apply(replicas, inputs, kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/parallel/data_parallel.py", line 177, in parallel_apply
+    return parallel_apply(replicas, inputs, kwargs, self.device_ids[:len(replicas)])
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 86, in parallel_apply
+    output.reraise()
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/_utils.py", line 429, in reraise
+    raise self.exc_type(msg)
+RuntimeError: Caught RuntimeError in replica 0 on device 0.
+Original Traceback (most recent call last):
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/parallel/parallel_apply.py", line 61, in _worker
+    output = module(*input, **kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/models/retinanet.py", line 110, in forward
+    flat_conf = self.clayer(conf.reshape(-1, self.num_classes))
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/ccn/constraints_layer.py", line 25, in forward
+    x = module(x, goal=goal)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/torch/nn/modules/module.py", line 889, in _call_impl
+    result = self.forward(*input, **kwargs)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/ccn/constraints_module.py", line 98, in forward
+    return self.apply(preds)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/ccn/constraints_module.py", line 74, in apply
+    pos_body_min = torch.min(self.where(pos_body, exp_preds, 1), dim=2).values
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/anaconda3/envs/ccn/lib/python3.7/site-packages/ccn/constraints_module.py", line 21, in where
+    return opt2 + cond * (opt1 - opt2)
+RuntimeError: CUDA out of memory. Tried to allocate 6.90 GiB (GPU 0; 31.75 GiB total capacity; 22.23 GiB already allocated; 5.74 GiB free; 24.76 GiB reserved in total by PyTorch)
+

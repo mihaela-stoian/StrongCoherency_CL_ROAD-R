@@ -174,7 +174,6 @@ def main():
     # CCN layer parameters 
     parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
-    parser.add_argument('--CCN_CLASSES', default=41, type=str, help="Number of classes to classify indexed from 0")
 
     # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
@@ -196,23 +195,6 @@ def main():
     logger.info(sys.version)
     
     assert args.MODE in ['train','val','gen_dets','eval_frames', 'eval_tubes'], 'MODE must be from ' + ','.join(['train','test','tubes'])
-
-    ## Initialise CCN Layer 
-    if args.CCN_CONSTRAINTS != '':
-        constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
-        clauses = ClausesGroup.from_constraints_group(constraints)
-        logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
-
-        strata = clauses.stratify(args.CCN_CENTRALITY)
-        logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
-
-        clayer = ConstraintsLayer(strata, args.CCN_CLASSES)
-        logger.info(str(clayer))
-    else:
-        logger.info("Using the plain model without CCN layer")
-        clayer = torch.nn.Identity()
-
-    ## Initialising other parameters ??
 
     if args.MODE == 'train':
         args.TEST_SEQ_LEN = args.SEQ_LEN
@@ -275,6 +257,23 @@ def main():
     args.num_ego_classes = val_dataset.num_ego_classes
     args.ego_classes = val_dataset.ego_classes
     args.head_size = 256
+    
+    ## Initialise CCN Layer 
+    if args.CCN_CONSTRAINTS != '':
+        constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
+        clauses = ClausesGroup.from_constraints_group(constraints)
+        logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
+
+        strata = clauses.stratify(args.CCN_CENTRALITY)
+        logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
+
+        clayer = ConstraintsLayer(strata, args.num_classes)
+        logger.info(str(clayer))
+    else:
+        logger.info("Using the plain model without CCN layer")
+        clayer = torch.nn.Identity()
+
+    ## Build neural network (with CCN layer)
 
     if args.MODE in ['train', 'val','gen_dets']:
         net = build_retinanet(args, clayer).cuda()
@@ -291,7 +290,7 @@ def main():
                 net.module.backbone.apply(utils.set_bn_eval)
             else:
                 net.backbone.apply(utils.set_bn_eval)
-        train(args, clayer, train_dataset, val_dataset)
+        train(args, net, train_dataset, val_dataset)
     elif args.MODE == 'val':
         val(args, net, val_dataset)
     elif args.MODE == 'gen_dets':

@@ -106,10 +106,12 @@ class RetinaNet(nn.Module):
         loc = torch.cat([o.view(o.size(0), o.size(1), -1) for o in loc], 2)
         conf = torch.cat([o.view(o.size(0), o.size(1), -1) for o in conf], 2)
 
-        ## TODO USE CLAYER
+        ## Apply constraints layer
+        flat_conf = self.clayer(conf.reshape(-1, self.num_classes))
+        ## TODO: Add goal
         
         flat_loc = loc.view(loc.size(0), loc.size(1), -1, 4)
-        flat_conf = conf.view(conf.size(0), conf.size(1), -1, self.num_classes)
+        flat_conf = flat_conf.view(conf.size(0), conf.size(1), -1, self.num_classes)
 
         # pdb.set_trace()
         if get_features:  # testing mode with feature return
