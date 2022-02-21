@@ -46,7 +46,6 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
     count = 0
     torch.cuda.synchronize()
     ts = time.perf_counter()
-    activation = torch.nn.Sigmoid().cuda()
 
     ego_pds = []
     ego_gts = []
@@ -70,9 +69,8 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
             
             images = images.cuda(0, non_blocking=True)
             decoded_boxes, confidence, ego_preds = net(images)
-            ego_preds = activation(ego_preds).cpu().numpy()
+            ego_preds = ego_preds.cpu().numpy()
             ego_labels = ego_labels.numpy()
-            confidence = activation(confidence)
 
             if print_time and val_itr%val_step == 0:
                 torch.cuda.synchronize()

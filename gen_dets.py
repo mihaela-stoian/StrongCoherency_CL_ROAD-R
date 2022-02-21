@@ -85,7 +85,6 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
     count = 0
     torch.cuda.synchronize()
     ts = time.perf_counter()
-    activation = torch.nn.Sigmoid().cuda()
 
     ego_pds = []
     ego_gts = []
@@ -110,9 +109,8 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
             
             images = images.cuda(0, non_blocking=True)
             decoded_boxes, confidence, ego_preds = net(images)
-            ego_preds = activation(ego_preds).cpu().numpy()
+            ego_preds = ego_preds.cpu().numpy()
             ego_labels = ego_labels.numpy()
-            confidence = activation(confidence)
             seq_len = ego_preds.shape[1]
             
             if print_time and val_itr%val_step == 0:

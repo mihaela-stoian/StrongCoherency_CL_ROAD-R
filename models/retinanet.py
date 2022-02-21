@@ -113,8 +113,6 @@ class RetinaNet(nn.Module):
         conf = self.activation(conf)
         ego_preds = self.activation(ego_preds)
 
-        ## TODO: Remove activations from FocalLoss, val, gen_dets
-
         ## Apply constraints layer
         reshaped_conf = conf.reshape(-1, self.num_classes)
         flat_conf = reshaped_conf[:, 0:self.ccn_num_classes]

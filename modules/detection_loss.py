@@ -75,9 +75,8 @@ class FocalLoss(nn.Module):
             anchors: (num_anchors, 4)
 
         """
-        ego_preds = torch.sigmoid(ego_preds)
         ps = confidence.shape
-        preds = torch.sigmoid(confidence)
+        preds = confidence
         # ps = predicted_locations.shape
         # predicted_locations = predicted_locations.view(ps[0],ps[1], -1, [-1])
         ball_labels = []
