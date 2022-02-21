@@ -174,6 +174,7 @@ def main():
     # CCN layer parameters 
     parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
+    parser.add_argument('--CCN_NUM_CLASSES', default = 41, type=int, help="Number of labels constrained")
 
     # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
@@ -259,6 +260,7 @@ def main():
     args.head_size = 256
     
     ## Initialise CCN Layer 
+    args.ccn_num_classes = args.CCN_NUM_CLASSES
     if args.CCN_CONSTRAINTS != '':
         constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
         clauses = ClausesGroup.from_constraints_group(constraints)
@@ -267,11 +269,11 @@ def main():
         strata = clauses.stratify(args.CCN_CENTRALITY)
         logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
 
-        clayer = ConstraintsLayer(strata, args.num_classes)
+        clayer = ConstraintsLayer(strata, args.ccn_num_classes)
         logger.info(str(clayer))
     else:
-        logger.info("Using the plain model without CCN layer")
-        clayer = torch.nn.Identity()
+        logger.info("Using the plain model with empty CCN layer")
+        clayer = ConstraintsLayer([], args.ccn_num_classes)
 
     ## Build neural network (with CCN layer)
 

@@ -54,6 +54,9 @@ class RetinaNet(nn.Module):
         else:
             raise RuntimeError('Define correct anchor type')
 
+        ## Moved activation inside net & added clayer
+        self.ccn_num_classes = args.ccn_num_classes
+        self.activation = torch.nn.Sigmoid().cuda()
         self.clayer = clayer
             
         # print('Cell anchors\n', self.anchors.cell_anchors)
@@ -106,8 +109,17 @@ class RetinaNet(nn.Module):
         loc = torch.cat([o.view(o.size(0), o.size(1), -1) for o in loc], 2)
         conf = torch.cat([o.view(o.size(0), o.size(1), -1) for o in conf], 2)
 
+        ## Apply activation on predictions 
+        conf = self.activation(conf)
+        ego_preds = self.activation(ego_preds)
+
+        ## TODO: Remove activations from FocalLoss, val, gen_dets
+
         ## Apply constraints layer
-        flat_conf = self.clayer(conf.reshape(-1, self.num_classes))
+        reshaped_conf = conf.reshape(-1, self.num_classes)
+        flat_conf = reshaped_conf[:, 0:self.ccn_num_classes]
+        flat_conf = self.clayer(flat_conf)
+        flat_conf = torch.cat((flat_conf, reshaped_conf[:, self.ccn_num_classes:]), dim=1)
         ## TODO: Add goal
         
         flat_loc = loc.view(loc.size(0), loc.size(1), -1, 4)

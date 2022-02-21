@@ -484,6 +484,8 @@ class VideoDataset(tutils.data.Dataset):
         self.print_str = ptrstr
         
     def __len__(self):
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # return 100
         return len(self.ids)
 
     def __getitem__(self, index):
