@@ -485,7 +485,12 @@ class VideoDataset(tutils.data.Dataset):
         
     def __len__(self):
         # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
-        # return 100
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # print("TODO: USE THE ENTIRE DATASET WHEN DOING THE EXPERIMENTS")
+        # return 10
         return len(self.ids)
 
     def __getitem__(self, index):

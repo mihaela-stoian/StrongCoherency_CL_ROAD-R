@@ -89,7 +89,6 @@ class RetinaNet(nn.Module):
             3, 1, 1), stride=1, padding=(1, 0, 0))
         nn.init.constant_(self.ego_head.bias, bias_value)
 
-
     def forward(self, images, gt_boxes=None, gt_labels=None, ego_labels=None, counts=None, img_indexs=None, get_features=False):
         sources, ego_feat = self.backbone(images)
 
@@ -112,22 +111,16 @@ class RetinaNet(nn.Module):
         ## Apply activation on predictions 
         conf = self.activation(conf)
         ego_preds = self.activation(ego_preds)
-
-        ## Apply constraints layer
-        reshaped_conf = conf.reshape(-1, self.num_classes)
-        flat_conf = reshaped_conf[:, 0:self.ccn_num_classes]
-        flat_conf = self.clayer(flat_conf)
-        flat_conf = torch.cat((flat_conf, reshaped_conf[:, self.ccn_num_classes:]), dim=1)
-        ## TODO: Add goal
         
         flat_loc = loc.view(loc.size(0), loc.size(1), -1, 4)
-        flat_conf = flat_conf.view(conf.size(0), conf.size(1), -1, self.num_classes)
+        flat_conf = conf.view(conf.size(0), conf.size(1), -1, self.num_classes)
 
         # pdb.set_trace()
         if get_features:  # testing mode with feature return
+            flat_conf = self.apply_constraints(flat_conf)
             return flat_conf, features
         elif gt_boxes is not None:  # training mode
-            return self.criterion(flat_conf, flat_loc, gt_boxes, gt_labels, counts, ancohor_boxes, ego_preds, ego_labels)
+            return self.criterion(flat_conf, flat_loc, gt_boxes, gt_labels, counts, ancohor_boxes, ego_preds, ego_labels, clayer=self.apply_constraints)
         else:  # otherwise testing mode
             decoded_boxes = []
             for b in range(flat_loc.shape[0]):
@@ -136,8 +129,22 @@ class RetinaNet(nn.Module):
                     # torch.stack([decode(flat_loc[b], ancohor_boxes) for b in range(flat_loc.shape[0])], 0),
                     temp_l.append(decode(flat_loc[b, s], ancohor_boxes))
                 decoded_boxes.append(torch.stack(temp_l, 0))
+
+            flat_conf = self.apply_constraints(flat_conf)
             return torch.stack(decoded_boxes, 0), flat_conf, ego_preds
 
+    ## Apply constraints layer
+    def apply_constraints(self, conf, goal=None):
+        if not goal is None:
+            goal = goal.reshape(-1, self.num_classes)
+            goal = goal[:, 0:self.ccn_num_classes]
+
+        shape = conf.shape
+        reshaped_conf = conf.reshape(-1, self.num_classes)
+        conf = reshaped_conf[:, 0:self.ccn_num_classes]
+        conf = self.clayer(conf, goal)
+        conf = torch.cat((conf, reshaped_conf[:, self.ccn_num_classes:]), dim=1)
+        return conf.reshape(shape)
 
     def make_features(self,  shared_heads):
         layers = []

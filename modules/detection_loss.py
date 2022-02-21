@@ -62,7 +62,7 @@ class FocalLoss(nn.Module):
         self.gamma = 2.0
 
 
-    def forward(self, confidence, predicted_locations, gt_boxes, gt_labels, counts, anchors, ego_preds, ego_labels):
+    def forward(self, confidence, predicted_locations, gt_boxes, gt_labels, counts, anchors, ego_preds, ego_labels, clayer=None):
         ## gt_boxes, gt_labels, counts, ancohor_boxes
         
         """
@@ -149,6 +149,10 @@ class FocalLoss(nn.Module):
         
         masked_labels = all_labels[mask].reshape(-1, self.num_classes) # Remove Ignore labels
         masked_preds = preds[mask].reshape(-1, self.num_classes) # Remove Ignore preds
+
+        if not clayer is None:
+            masked_preds = clayer(masked_preds, goal=masked_labels)
+
         cls_loss = sigmoid_focal_loss(masked_preds, masked_labels, num_pos, self.alpha, self.gamma)
 
         mask = ego_labels>-1
