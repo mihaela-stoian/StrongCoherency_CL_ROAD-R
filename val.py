@@ -26,7 +26,7 @@ def val(args, net, val_dataset):
     mAP, ap_all, ap_strs = validate(args, net,  val_data_loader, val_dataset, args.EVAL_EPOCHS[0])
     label_types = args.label_types
     all_classes = args.all_classes
-    for nlt in range(args.num_label_types+1):
+    for nlt in range(args.num_label_types):
         for ap_str in ap_strs[nlt]:
             logger.info(ap_str)
         ptr_str = '\n{:s} MEANAP:::=> {:0.5f}'.format(label_types[nlt], mAP[nlt])
