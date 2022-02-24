@@ -104,7 +104,7 @@ class FocalLoss(nn.Module):
                             anchors, pos_th=self.positive_threshold, nge_th=self.negative_threshold )
                     else:
                         loc = torch.zeros_like(anchors, device=device)
-                        conf = torch.zeros(anchors.shape[0], device=device) - 1
+                        conf = torch.zeros(anchors.shape[0], dtype=torch.long, device=device) - 1
                     
                     # print(conf.device)
                     # print(loc.device)
