@@ -24,8 +24,8 @@ def val(args, net, val_dataset):
     logger.info('Loaded model from :: '+args.MODEL_PATH)
     net.load_state_dict(torch.load(args.MODEL_PATH))
     mAP, ap_all, ap_strs = validate(args, net,  val_data_loader, val_dataset, args.EVAL_EPOCHS[0])
-    label_types = args.label_types + ['ego_action']
-    all_classes = args.all_classes + [args.ego_classes]
+    label_types = args.label_types
+    all_classes = args.all_classes
     for nlt in range(args.num_label_types+1):
         for ap_str in ap_strs[nlt]:
             logger.info(ap_str)
@@ -47,9 +47,6 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
     torch.cuda.synchronize()
     ts = time.perf_counter()
 
-    ego_pds = []
-    ego_gts = []
-
     det_boxes = []
     gt_boxes_all = []
 
@@ -68,9 +65,7 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
             batch_size = images.size(0)
             
             images = images.cuda(0, non_blocking=True)
-            decoded_boxes, confidence, ego_preds = net(images)
-            ego_preds = ego_preds.cpu().numpy()
-            ego_labels = ego_labels.numpy()
+            decoded_boxes, confidence = net(images)
 
             if print_time and val_itr%val_step == 0:
                 torch.cuda.synchronize()
@@ -80,9 +75,6 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
             seq_len = gt_targets.size(1)
             for b in range(batch_size):
                 for s in range(seq_len):
-                    if ego_labels[b,s]>-1:
-                        ego_pds.append(ego_preds[b,s,:])
-                        ego_gts.append(ego_labels[b,s])
                     
                     width, height = wh[b][0], wh[b][1]
                     gt_boxes_batch = gt_boxes[b, s, :batch_counts[b, s],:].numpy()
@@ -118,5 +110,4 @@ def validate(args, net,  val_data_loader, val_dataset, iteration_num):
 
     logger.info('Evaluating detections for epoch number ' + str(iteration_num))
     mAP, ap_all, ap_strs = evaluate.evaluate(gt_boxes_all, det_boxes, args.all_classes, iou_thresh=iou_thresh)
-    mAP_ego, ap_all_ego, ap_strs_ego = evaluate.evaluate_ego(np.asarray(ego_gts), np.asarray(ego_pds),  args.ego_classes)
-    return mAP + [mAP_ego], ap_all + [ap_all_ego], ap_strs + [ap_strs_ego]
+    return mAP, ap_all, ap_strs

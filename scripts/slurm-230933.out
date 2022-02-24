@@ -1,0 +1,17 @@
+Your working directories are::
+LOAD::>  ~/road-dataset/ 
+SAVE::>  ~/road-dataset/
+Your model will be initialized using ~/3D-RetinaNet/kinetics-pt/resnet50I3D.pth
+Create:  ~/road-dataset/road/cache/resnet50I3D512-Pkinetics-b4s8x1x1-roadt1-h3x3x3/
+[INFO: main.py:  196]: 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) 
+[GCC 9.4.0]
+Traceback (most recent call last):
+  File "main.py", line 309, in <module>
+    main()
+  File "main.py", line 221, in main
+    train_dataset = VideoDataset(args, train=True, skip_step=train_skip_step, transform=train_transform)
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/data/datasets.py", line 252, in __init__
+    self._make_lists_road()  
+  File "/jmain02/home/J2AD009/ttl04/aat50-ttl04/3D-RetinaNet/data/datasets.py", line 358, in _make_lists_road
+    with open(self.anno_file,'r') as fff:
+FileNotFoundError: [Errno 2] No such file or directory: '~/road-dataset/road/road_trainval_v1.0.json'

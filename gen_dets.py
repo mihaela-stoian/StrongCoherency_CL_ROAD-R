@@ -64,7 +64,7 @@ def gen_dets(args, net, val_dataset):
         
         net.eval() # switch net to evaluation mode        
         mAP, _, ap_strs = perform_detection(args, net, val_data_loader, val_dataset, epoch)
-        label_types = [args.label_types[0]] + ['ego_action']
+        label_types = [args.label_types[0]]
         for nlt in range(len(label_types)):
             for ap_str in ap_strs[nlt]:
                 logger.info(ap_str)
@@ -86,9 +86,6 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
     torch.cuda.synchronize()
     ts = time.perf_counter()
 
-    ego_pds = []
-    ego_gts = []
-
     det_boxes = []
     gt_boxes_all = []
 
@@ -108,10 +105,8 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
             batch_size = images.size(0)
             
             images = images.cuda(0, non_blocking=True)
-            decoded_boxes, confidence, ego_preds = net(images)
-            ego_preds = ego_preds.cpu().numpy()
-            ego_labels = ego_labels.numpy()
-            seq_len = ego_preds.shape[1]
+            decoded_boxes, confidence = net(images)
+            seq_len = confidence.shape[1]
             
             if print_time and val_itr%val_step == 0:
                 torch.cuda.synchronize()
@@ -133,10 +128,6 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
                     os.makedirs(save_dir)
                 count += 1
                 for s in range(seq_len):
-                    if ego_labels[b,s]>-1:
-                        ego_pds.append(ego_preds[b,s,:])
-                        ego_gts.append(ego_labels[b,s])
-                    
                     gt_boxes_batch = gt_boxes[b, s, :batch_counts[b, s],:].numpy()
                     gt_labels_batch =  gt_targets[b, s, :batch_counts[b, s]].numpy()
                     decoded_boxes_batch = decoded_boxes[b,s]
@@ -150,7 +141,7 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
                     
                     save_name = '{:s}/{:05d}.pkl'.format(save_dir, frame_num+1)
                     frame_num += step_size
-                    save_data = {'ego':ego_preds[b,s,:], 'main':save_data}
+                    save_data = {'main':save_data}
                     if s<seq_len-args.skip_ending or store_last:
                         with open(save_name,'wb') as ff:
                             pickle.dump(save_data, ff)
@@ -167,8 +158,7 @@ def perform_detection(args, net,  val_data_loader, val_dataset, iteration):
                 logger.info('NMS stuff Time {:0.3f}'.format(te - tf))
 
     mAP, ap_all, ap_strs = evaluate.evaluate(gt_boxes_all, det_boxes, args.all_classes, iou_thresh=args.IOU_THRESH)
-    mAP_ego, ap_all_ego, ap_strs_ego = evaluate.evaluate_ego(np.asarray(ego_gts), np.asarray(ego_pds),  args.ego_classes)
-    return mAP + [mAP_ego], ap_all + [ap_all_ego], ap_strs + [ap_strs_ego]
+    return mAP, ap_all, ap_strs
 
 
 
@@ -194,11 +184,6 @@ def gather_framelevel_detection(args, val_dataset):
             with open(save_name,'rb') as ff:
                 dets = pickle.load(ff)
             frame_name = frame_name.rstrip('.pkl')
-            # detections[videoname+frame_name] = {}
-            if args.DATASET == 'road':
-                detections['av_actions'][videoname+frame_name] = dets['ego']
-            else:
-                detections['frame_actions'][videoname+frame_name] = dets['ego']
             frame_dets = dets['main']
             
             if args.JOINT_4M_MARGINALS:

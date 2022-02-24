@@ -62,7 +62,7 @@ class FocalLoss(nn.Module):
         self.gamma = 2.0
 
 
-    def forward(self, confidence, predicted_locations, gt_boxes, gt_labels, counts, anchors, ego_preds, ego_labels, clayer=None):
+    def forward(self, confidence, predicted_locations, gt_boxes, gt_labels, counts, anchors, clayer=None):
         ## gt_boxes, gt_labels, counts, ancohor_boxes
         
         """
@@ -104,7 +104,7 @@ class FocalLoss(nn.Module):
                             anchors, pos_th=self.positive_threshold, nge_th=self.negative_threshold )
                     else:
                         loc = torch.zeros_like(anchors, device=device)
-                        conf = ego_labels.new_zeros(anchors.shape[0], device=device) - 1
+                        conf = torch.zeros(anchors.shape[0], device=device) - 1
                     
                     # print(conf.device)
                     # print(loc.device)
@@ -155,14 +155,4 @@ class FocalLoss(nn.Module):
 
         cls_loss = sigmoid_focal_loss(masked_preds, masked_labels, num_pos, self.alpha, self.gamma)
 
-        mask = ego_labels>-1
-        numc = ego_preds.shape[-1]
-        masked_preds = ego_preds[mask].reshape(-1, numc) # Remove Ignore preds
-        masked_labels = ego_labels[mask].reshape(-1) # Remove Ignore labels
-        one_hot_labels = get_one_hot_labels(masked_labels, numc)
-        ego_loss = 0
-        if one_hot_labels.shape[0]>0:
-            ego_loss = sigmoid_focal_loss(masked_preds, one_hot_labels, one_hot_labels.shape[0], self.alpha, self.gamma)
-        
-        # print(regression_loss, cls_loss, ego_loss)
-        return regression_loss, cls_loss/8.0 + ego_loss/4.0
+        return regression_loss, cls_loss/8.0 
