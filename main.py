@@ -19,7 +19,6 @@ from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
 
-
 def main():
     parser = argparse.ArgumentParser(description='Training single stage FPN with OHEM, resnet as backbone')
     parser.add_argument('DATA_ROOT', help='Location to root directory for dataset reading') # /mnt/mars-fast/datasets/
