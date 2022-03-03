@@ -64,8 +64,7 @@ def train(args, net, train_dataset, val_dataset):
     
     val_data_loader = data_utils.DataLoader(val_dataset, args.BATCH_SIZE, num_workers=args.NUM_WORKERS,
                                             shuffle=False, pin_memory=True, collate_fn=custum_collate)
-    
-    
+
     iteration = 0
     for epoch in range(args.START_EPOCH, args.MAX_EPOCHS + 1):
         net.train()
@@ -75,6 +74,13 @@ def train(args, net, train_dataset, val_dataset):
                 net.module.backbone.apply(utils.set_bn_eval)
             else:
                 net.backbone.apply(utils.set_bn_eval)
+        
+        #### TODO: REMOVE
+        if iteration == 0:
+            net.eval()
+            run_val(args, val_data_loader, val_dataset, net, epoch, iteration)
+        ####
+
         iteration = run_train(args, train_data_loader, net, optimizer, epoch, iteration) 
         
         if epoch % args.VAL_STEP == 0 or epoch == args.MAX_EPOCHS:
@@ -164,7 +170,7 @@ def run_val(args, val_data_loader, val_dataset, net, epoch, iteration):
         all_classes = args.all_classes 
         mAP_group = dict()
         
-        for nlt in range(args.num_label_types+1):
+        for nlt in range(args.num_label_types):
             for ap_str in ap_strs[nlt]:
                 logger.info(ap_str)
             ptr_str = '\n{:s} MEANAP:::=> {:0.5f}'.format(label_types[nlt], mAP[nlt])
