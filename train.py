@@ -76,9 +76,9 @@ def train(args, net, train_dataset, val_dataset):
                 net.backbone.apply(utils.set_bn_eval)
         
         #### TODO: REMOVE
-        if iteration == 0:
-            net.eval()
-            run_val(args, val_data_loader, val_dataset, net, epoch, iteration)
+        # if iteration == 0:
+        #     net.eval()
+        #     run_val(args, val_data_loader, val_dataset, net, epoch, iteration)
         ####
 
         iteration = run_train(args, train_data_loader, net, optimizer, epoch, iteration) 

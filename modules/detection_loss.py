@@ -151,7 +151,11 @@ class FocalLoss(nn.Module):
         masked_preds = preds[mask].reshape(-1, self.num_classes) # Remove Ignore preds
 
         if not clayer is None:
-            masked_preds = clayer(masked_preds, goal=masked_labels)
+            mask = (masked_labels.sum(dim=1) > 0)
+            indices = torch.tensor([i for i, v in enumerate(mask) if v > 0], dtype=torch.long).cuda()
+
+            updated = clayer(masked_preds[mask], goal=masked_labels[mask])
+            masked_preds = masked_preds.index_copy(0, indices, updated)
 
         cls_loss = sigmoid_focal_loss(masked_preds, masked_labels, num_pos, self.alpha, self.gamma)
 
