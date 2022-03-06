@@ -101,6 +101,8 @@ def run_train(args, train_data_loader, net, optimizer, epoch, iteration):
 
     for internel_iter, (images, gt_boxes, gt_labels, ego_labels, counts, img_indexs, wh) in enumerate(train_data_loader):
         iteration += 1
+        print(f"Start {iteration}")
+
         images = images.cuda(0, non_blocking=True)
         gt_boxes = gt_boxes.cuda(0, non_blocking=True)
         gt_labels = gt_labels.cuda(0, non_blocking=True)
@@ -154,6 +156,9 @@ def run_train(args, train_data_loader, net, optimizer, epoch, iteration):
             logger.info(print_line)
             if internel_iter % (args.LOG_STEP*20) == 0:
                 logger.info(args.exp_name)
+
+        print(f"Done {iteration}")
+
     logger.info('Saving state, epoch:' + str(epoch))
     torch.save(net.state_dict(), '{:s}/model_{:06d}.pth'.format(args.SAVE_ROOT, epoch))
     torch.save(optimizer.state_dict(), '{:s}/optimizer_{:06d}.pth'.format(args.SAVE_ROOT, epoch))
