@@ -13,8 +13,8 @@ source activate ccn
 ROOT="$HOME"
 DATASET="${ROOT}/road-dataset/"
 KINETICS="${ROOT}/3D-RetinaNet/kinetics-pt"
-#CONSTRAINTS="${ROOT}/3D-RetinaNet/constraints/full"
-CONSTRAINTS=''
+CONSTRAINTS="${ROOT}/3D-RetinaNet/constraints/full"
+#CONSTRAINTS=''
 
 # CHECK ALL PARAMETERS!!!!!!!!
 

@@ -22,6 +22,8 @@ import math
 import torch.nn as nn
 import modules.utils as utils
 
+from ccn import Profiler
+
 logger = utils.get_logger(__name__)
 
 class RetinaNet(nn.Module):
@@ -131,11 +133,14 @@ class RetinaNet(nn.Module):
             goal = goal.reshape(-1, self.num_classes)
             goal = goal[:, 0:self.ccn_num_classes]
 
+        slicer = self.clayer.slicer(1.)
+
         shape = conf.shape
         reshaped_conf = conf.reshape(-1, self.num_classes)
         conf = reshaped_conf[:, 0:self.ccn_num_classes]
-        conf = self.clayer(conf, goal)
+        conf = self.clayer(conf, goal, slicer=slicer)
         conf = torch.cat((conf, reshaped_conf[:, self.ccn_num_classes:]), dim=1)
+
         return conf.reshape(shape)
 
     def make_features(self,  shared_heads):

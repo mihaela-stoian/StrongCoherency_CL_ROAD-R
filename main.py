@@ -185,7 +185,7 @@ def main():
     ## set random seeds and global settings
     np.random.seed(args.MAN_SEED)
     torch.manual_seed(args.MAN_SEED)
-    # torch.cuda.manual_seed_all(args.MAN_SEED)
+    torch.cuda.manual_seed_all(args.MAN_SEED)
     torch.set_default_tensor_type('torch.FloatTensor')
 
     args = utils.create_exp_name(args)
