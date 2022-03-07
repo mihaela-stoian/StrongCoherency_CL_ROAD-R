@@ -131,13 +131,10 @@ class RetinaNet(nn.Module):
     def apply_constraints(self, conf, goal=None):
         if not goal is None:
             goal = goal.reshape(-1, self.num_classes)
-            goal = goal[:, 0:self.ccn_num_classes]
 
         shape = conf.shape
-        reshaped_conf = conf.reshape(-1, self.num_classes)
-        conf = reshaped_conf[:, 0:self.ccn_num_classes]
+        conf = conf.reshape(-1, self.num_classes)
         conf = self.clayer(conf, goal)
-        conf = torch.cat((conf, reshaped_conf[:, self.ccn_num_classes:]), dim=1)
 
         return conf.reshape(shape)
 

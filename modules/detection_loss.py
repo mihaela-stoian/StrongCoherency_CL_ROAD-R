@@ -151,15 +151,7 @@ class FocalLoss(nn.Module):
         masked_preds = preds[mask].reshape(-1, self.num_classes) # Remove Ignore preds
 
         if not clayer is None and masked_labels.shape[0] > 0:
-            
-            print("---- Before ------")
-            print(masked_labels[0])
-            print(masked_preds[0])
-
-            updated = clayer(masked_preds, goal=masked_labels)
-
-            print("---- After ------")
-            print(updated[0])
+            masked_preds = clayer(masked_preds, goal=masked_labels)
 
         cls_loss = sigmoid_focal_loss(masked_preds, masked_labels, num_pos, self.alpha, self.gamma)
 
