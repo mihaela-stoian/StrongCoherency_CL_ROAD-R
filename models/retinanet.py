@@ -129,7 +129,6 @@ class RetinaNet(nn.Module):
 
     ## Apply constraints layer
     def apply_constraints(self, conf, goal=None):
-        print("Call apply_constraints")
         if not goal is None:
             goal = goal.reshape(-1, self.num_classes)
             goal = goal[:, 0:self.ccn_num_classes]

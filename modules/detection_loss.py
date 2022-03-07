@@ -32,13 +32,6 @@ def sigmoid_focal_loss(preds, labels, num_pos, alpha, gamma):
        Return::
         loss: computed loss and reduced by sum and normlised by num_pos
      '''
-    print(f"Preds {preds.shape}, Labels {labels.shape}")
-    assert preds.shape == labels.shape
-    assert (0 <= preds).all()
-    assert (preds <= 1).all()
-    assert (0 <= labels).all() 
-    assert (labels <= 1).all()
-
     loss = F.binary_cross_entropy(preds, labels, reduction='none')
     alpha_factor = alpha * labels + (1.0 - alpha) * (1.0 - labels)
     pt = preds * labels + (1.0 - preds) * (1.0 - labels)
@@ -157,22 +150,16 @@ class FocalLoss(nn.Module):
         masked_labels = all_labels[mask].reshape(-1, self.num_classes) # Remove Ignore labels
         masked_preds = preds[mask].reshape(-1, self.num_classes) # Remove Ignore preds
 
-        if not clayer is None:
-            mask = (masked_labels.sum(dim=1) > 0)
+        if not clayer is None and masked_labels.shape[0] > 0:
+            
+            print("---- Before ------")
+            print(masked_labels[0])
+            print(masked_preds[0])
 
-            if mask.any():
-                print("A")
-                indices = torch.LongTensor([i for i in range(mask.shape[0])]).to(device)
-                print("B")
-                indices = indices[mask]
-                print("C")
-                print(masked_preds[mask][0])
-                assert (masked_labels[mask].sum(dim=1) > 0).all()
-                updated = clayer(masked_preds[mask], goal=masked_labels[mask])
-                print(updated[0])
-                print("D")
-                masked_preds = masked_preds.index_copy(0, indices, updated)
-                print("E")
+            updated = clayer(masked_preds, goal=masked_labels)
+
+            print("---- After ------")
+            print(updated[0])
 
         cls_loss = sigmoid_focal_loss(masked_preds, masked_labels, num_pos, self.alpha, self.gamma)
 
