@@ -56,6 +56,7 @@ class FocalLoss(nn.Module):
         self.positive_threshold = args.POSTIVE_THRESHOLD
         self.negative_threshold = args.NEGTIVE_THRESHOLD
         self.num_classes = args.num_classes
+        self.ccn_num_classes = args.ccn_num_classes
         self.num_label_types = args.num_label_types
         self.num_classes_list = args.num_classes_list
         self.alpha = 0.25
@@ -149,6 +150,9 @@ class FocalLoss(nn.Module):
         
         masked_labels = all_labels[mask].reshape(-1, self.num_classes) # Remove Ignore labels
         masked_preds = preds[mask].reshape(-1, self.num_classes) # Remove Ignore preds
+
+        masked_preds = masked_preds[:, :self.ccn_num_classes]
+        masked_labels = masked_labels[:, :self.ccn_num_classes]
 
         if not clayer is None and masked_labels.shape[0] > 0:
             masked_preds = clayer(masked_preds, goal=masked_labels)
