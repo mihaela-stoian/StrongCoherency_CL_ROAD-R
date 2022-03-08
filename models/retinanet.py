@@ -60,6 +60,7 @@ class RetinaNet(nn.Module):
         self.ccn_num_classes = args.ccn_num_classes
         self.activation = torch.nn.Sigmoid().cuda()
         self.clayer = clayer
+        self.detection_threshold = args.detection_threshold
             
         # print('Cell anchors\n', self.anchors.cell_anchors)
         # pdb.set_trace()
@@ -129,12 +130,17 @@ class RetinaNet(nn.Module):
 
     ## Apply constraints layer
     def apply_constraints(self, conf, goal=None):
-        if not goal is None:
-            goal = goal.reshape(-1, self.num_classes)
-
         shape = conf.shape
         conf = conf.reshape(-1, self.num_classes)
+
+        cut, uncut = self.detection_threshold.cutter(conf)
+        conf = cut(conf)
+        if not goal is None: 
+            goal = goal.reshape(-1, self.num_classes)
+            goal = cut(goal)
+
         conf = self.clayer(conf, goal)
+        conf = uncut(conf)
 
         return conf.reshape(shape)
 

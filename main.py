@@ -14,7 +14,7 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause
+from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause, DetectionThreshold
 
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
@@ -173,7 +173,7 @@ def main():
     # CCN layer parameters 
     parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
-    parser.add_argument('--CCN_NUM_CLASSES', default = 42, type=int, help="Number of labels constrained")
+    parser.add_argument('--CCN_NUM_CLASSES', default = 41, type=int, help="Number of labels constrained")
 
     # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
@@ -260,13 +260,15 @@ def main():
     
     ## Initialise CCN Layer 
     args.ccn_num_classes = args.CCN_NUM_CLASSES
+    args.detection_threshold = DetectionThreshold(args.CONF_THRESH)
     if args.CCN_CONSTRAINTS != '':
         constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
         clauses = ClausesGroup.from_constraints_group(constraints)
         logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
 
-        clauses = clauses.shift_add_n0()
-        logger.info(f"Shifted atoms and added n0 to all clauses")
+        # forced = False
+        # clauses = clauses.add_detection_label(forced)
+        # logger.info(f"Shifted atoms and added n0 to all clauses (forced {forced})")
 
         strata = clauses.stratify(args.CCN_CENTRALITY)
         logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
