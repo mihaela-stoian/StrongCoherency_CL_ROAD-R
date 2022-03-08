@@ -14,7 +14,7 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause, DetectionThreshold
+from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause, DetectionThreshold, Profiler
 
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
@@ -261,6 +261,8 @@ def main():
     ## Initialise CCN Layer 
     args.ccn_num_classes = args.CCN_NUM_CLASSES
     args.detection_threshold = DetectionThreshold(args.CONF_THRESH)
+    Profiler.disable()
+
     if args.CCN_CONSTRAINTS != '':
         constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
         clauses = ClausesGroup.from_constraints_group(constraints)
