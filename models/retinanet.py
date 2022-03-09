@@ -133,23 +133,29 @@ class RetinaNet(nn.Module):
         shape = conf.shape
         conf = conf.reshape(-1, self.num_classes)
 
-        cut, uncut = self.detection_threshold.cutter(conf)
-        conf = cut(conf)
-        if not goal is None: 
+        if goal is None:
+            # validating or testing
+            cut = self.detection_threshold.cutter(conf)
+            conf, uncut_conf = cut(conf)
+        else: 
+            # training
             goal = goal.reshape(-1, self.num_classes)
-            goal = cut(goal)
+            cut = self.detection_threshold.cutter(goal)
+            conf, uncut_conf = cut(conf)
+            goal, uncut_goal = cut(goal)
     
         if conf.shape[0] > 0:
+            print("--- BEFORE ---")
             print(conf[0])
-            print(goal[0])
+            if not goal is None: print(goal[0])
 
         conf = self.clayer(conf, goal)
 
         if conf.shape[0] > 0:
+            print("--- AFTER ---")
             print(conf[0])
 
-        conf = uncut(conf)
-
+        conf = uncut_conf(conf)
         return conf.reshape(shape)
 
     def make_features(self,  shared_heads):
