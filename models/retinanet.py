@@ -138,8 +138,16 @@ class RetinaNet(nn.Module):
         if not goal is None: 
             goal = goal.reshape(-1, self.num_classes)
             goal = cut(goal)
+    
+        if conf.shape[0] > 0:
+            print(conf[0])
+            print(goal[0])
 
         conf = self.clayer(conf, goal)
+
+        if conf.shape[0] > 0:
+            print(conf[0])
+
         conf = uncut(conf)
 
         return conf.reshape(shape)

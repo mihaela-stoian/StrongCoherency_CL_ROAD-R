@@ -16,8 +16,8 @@ KINETICS="${ROOT}/3D-RetinaNet/kinetics-pt"
 CONSTRAINTS="${ROOT}/3D-RetinaNet/constraints/full"
 #CONSTRAINTS=''
 
-OPTIM="ADAM"
-CENTRALITY="rev-katz"
+OPTIM="SGD"
+CENTRALITY="katz"
 CCN_NUM_CLASSES="41"
 BATCH_SIZE=8
 # CHECK ALL PARAMETERS!!!!!!!!
