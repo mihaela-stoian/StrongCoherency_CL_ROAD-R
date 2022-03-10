@@ -174,6 +174,7 @@ def main():
     parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
     parser.add_argument('--CCN_NUM_CLASSES', default = 41, type=int, help="Number of labels constrained")
+    parser.add_argument('--CLIP', default=1., type=float, help="Gradient norm clipping limit")
 
     # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
@@ -262,6 +263,9 @@ def main():
     args.ccn_num_classes = args.CCN_NUM_CLASSES
     args.detection_threshold = DetectionThreshold(args.CONF_THRESH)
     Profiler.disable()
+
+    args.clip = args.CLIP
+    logger.info(f"Clipping the gradient norm to {args.clip}")
 
     if args.CCN_CONSTRAINTS != '':
         constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)

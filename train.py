@@ -119,7 +119,7 @@ def run_train(args, train_data_loader, net, optimizer, epoch, iteration):
         loss = loss_l + loss_c
 
         loss.backward()
-        norm = torch.nn.utils.clip_grad_norm_(net.parameters(), 1.)
+        norm = torch.nn.utils.clip_grad_norm_(net.parameters(), args.clip)
         print(f"Iteration {iteration} norm {norm}")
 
         optimizer.step()
