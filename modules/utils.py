@@ -134,14 +134,19 @@ def set_args(args):
 def create_exp_name(args):
     """Create name of experiment using training parameters """
     splits = ''.join([split[0]+split[-1] for split in args.TRAIN_SUBSETS])
-    args.exp_name = '{:s}{:s}{:d}-P{:s}-b{:0d}s{:d}x{:d}x{:d}-{:s}{:s}-h{:d}x{:d}x{:d}'.format(
+    args.exp_name = '{:s}{:s}{:d}-P{:s}-b{:0d}s{:d}x{:d}x{:d}-{:s}{:s}-h{:d}x{:d}x{:d}-{:s}c{:f}-{date:%m-%d-%H-%M-%Sx}'.format(
         args.ARCH, args.MODEL_TYPE,
         args.MIN_SIZE, args.model_init, args.BATCH_SIZE,
         args.SEQ_LEN, args.MIN_SEQ_STEP, args.MAX_SEQ_STEP,
         args.DATASET, splits, 
         args.HEAD_LAYERS, args.CLS_HEAD_TIME_SIZE,
         args.REG_HEAD_TIME_SIZE,
+        args.CCN_CENTRALITY,
+        args.CLIP,
+        date=datetime.datetime.now(),
         )
+
+    log_file_name = '{:s}/{:s}-{date:%m-%d-%Hx}.log'.format(args.SAVE_ROOT, args.MODE, date=datetime.datetime.now())
 
     args.SAVE_ROOT += args.DATASET+'/'
     args.SAVE_ROOT = args.SAVE_ROOT+'cache/'+args.exp_name+'/'
