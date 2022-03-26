@@ -146,6 +146,9 @@ def create_exp_name(args):
         date=datetime.datetime.now(),
         )
 
+    if len(args.EXP_NAME) > 0:
+        args.exp_name = args.EXP_NAME
+
     log_file_name = '{:s}/{:s}-{date:%m-%d-%Hx}.log'.format(args.SAVE_ROOT, args.MODE, date=datetime.datetime.now())
 
     args.SAVE_ROOT += args.DATASET+'/'

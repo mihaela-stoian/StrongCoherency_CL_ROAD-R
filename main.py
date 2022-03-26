@@ -175,6 +175,7 @@ def main():
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
     parser.add_argument('--CCN_NUM_CLASSES', default = 41, type=int, help="Number of labels constrained")
     parser.add_argument('--CLIP', default=1., type=float, help="Gradient norm clipping limit")
+    parser.add_argument('--EXP_NAME', default="", type=str, help="Custom experiment name")
 
     # Use CUDA_VISIBLE_DEVICES=0,1,4,6 to select GPUs to use
 
