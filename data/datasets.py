@@ -243,6 +243,8 @@ class VideoDataset(tutils.data.Dataset):
         self.input_type = input_type+'-images'
         self.train = train
         self.root = args.DATA_ROOT + args.DATASET + '/'
+        self.mode = args.MODE
+        self.val_subsets = args.VAL_SUBSETS
         
         self._imgpath = os.path.join(self.root, self.input_type)
         # self.image_sets = image_sets
@@ -353,7 +355,12 @@ class VideoDataset(tutils.data.Dataset):
         
     def _make_lists_road(self):
 
-        self.anno_file  = os.path.join(self.root, 'road_trainval_v1.0.json')
+        if 'train' in self.mode or not 'test' in self.val_subsets:
+            logger.info("Loading trainval dataset")
+            self.anno_file  = os.path.join(self.root, 'road_trainval_v1.0.json')
+        else:
+            logger.info("Loading test dataset")
+            self.anno_file = os.path.join(self.root, 'road_test_v1.0.json')
 
         with open(self.anno_file,'r') as fff:
             final_annots = json.load(fff)
