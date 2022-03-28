@@ -1,0 +1,32 @@
+#!/bin/sh
+
+#SBATCH --nodes=1
+#SBATCH --job-name=train_3D_Retinanet
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=atatomir5@gmail.com
+#SBATCH --partition=long
+#SBATCH --gres=gpu:8
+
+source ~/.bashrc
+source activate ccn
+
+ROOT="$HOME"
+DATASET="${ROOT}/road-dataset/"
+KINETICS="${ROOT}/3D-RetinaNet/kinetics-pt"
+
+CONSTRAINTS="${ROOT}/3D-RetinaNet/constraints/full"
+#CONSTRAINTS=''
+
+CLIP="10."
+#CLIP="100000."
+
+OPTIM="SGD"
+CENTRALITY="custom"
+CCN_CUSTOM_ORDER="7,40,23,5,27,28,39,18,19,21,38,22,16,11,20,33,9,30,3,24,4,15,34,31,25,26,13,17,29,37,14,36,12,35,6,0,10,32,2,1,8"
+CCN_NUM_CLASSES="41"
+BATCH_SIZE=8
+
+# CHECK ALL PARAMETERS!!!!!!!!
+
+cd ..
+CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 NCCL_DEBUG="INFO" python main.py $DATASET $DATASET $KINETICS --MODE=train --ARCH=resnet50 --MODEL_TYPE=I3D --DATASET=road --TRAIN_SUBSETS=train_1 --VAL_SUBSETS=val_1 --SEQ_LEN=8 --TEST_SEQ_LEN=8 --BATCH_SIZE=$BATCH_SIZE --LR=0.0041 --CCN_CONSTRAINTS=$CONSTRAINTS --CCN_CENTRALITY=$CENTRALITY --CCN_CUSTOM_ORDER=$CCN_CUSTOM_ORDER --CCN_NUM_CLASSES=$CCN_NUM_CLASSES --OPTIM=$OPTIM --CLIP=$CLIP
