@@ -252,7 +252,7 @@ def eval_framewise_dets(args, val_dataset):
             logger.info('Detection will be loaded: ' + args.det_file_name)
         
         if args.DATASET == 'road':
-            label_types =  args.label_types + ['av_actions']
+            label_types =  args.label_types
         else:
             label_types = args.label_types + ['frame_actions']
 

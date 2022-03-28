@@ -554,7 +554,7 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
 
     results = {}
     if dataset == 'road':
-        label_types = ['av_actions'] + ['agent_ness'] + final_annots['label_types']
+        label_types = ['agent_ness'] + final_annots['label_types']
     else:
         label_types = ['frame_actions', 'action_ness', 'action']
     t1 = time.perf_counter()

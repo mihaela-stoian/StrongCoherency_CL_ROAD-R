@@ -174,6 +174,7 @@ def main():
     parser.add_argument('--CCN_CONSTRAINTS', default='', type=str, help="Path to constraints file")
     parser.add_argument('--CCN_CENTRALITY', default='katz', type=str, help="Centrality used to guide constraints inferrence")
     parser.add_argument('--CCN_NUM_CLASSES', default = 41, type=int, help="Number of labels constrained")
+    parser.add_argument('--CCN_CUSTOM_ORDER', default='', help="Custom centrality order (set CCN_CENTRALITY to custom)")
     parser.add_argument('--CLIP', default=1., type=float, help="Gradient norm clipping limit")
     parser.add_argument('--EXP_NAME', default="", type=str, help="Custom experiment name")
 
@@ -277,8 +278,16 @@ def main():
         # clauses = clauses.add_detection_label(forced)
         # logger.info(f"Shifted atoms and added n0 to all clauses (forced {forced})")
 
-        strata = clauses.stratify(args.CCN_CENTRALITY)
-        logger.info(f"Generated {len(strata)} strata of constraints with {args.CCN_CENTRALITY} centrality")
+        if 'custom' in args.CCN_CENTRALITY:
+            order = args.CCN_CUSTOM_ORDER.split(',')
+            centrality = np.array([int(nr) for nr in order])
+            if 'rev' in args.CCN_CENTRALITY:
+                centrality = centrality[::-1]
+        else:
+            centrality = args.CCN_CENTRALITY
+
+        strata = clauses.stratify(centrality)
+        logger.info(f"Generated {len(strata)} strata of constraints with {centrality} centrality")
 
         clayer = ConstraintsLayer(strata, args.ccn_num_classes)
         logger.info(str(clayer))
