@@ -291,7 +291,7 @@ def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=
     num_postives = fn
 
     if len(class_dets) == 0:
-        return  0,num_postives ,0,0
+        return 0, num_postives, 0, 0, 0
     pr = np.empty((len(class_dets) + 1, 2), dtype=np.float32)
     pr[0, 0] = 1.0
     pr[0, 1] = 0.0
@@ -306,6 +306,9 @@ def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=
     inv_det_scores = np.asarray([-det[1]['score'] for det in class_dets])
     indexs = np.argsort(inv_det_scores)
     count = 0
+
+    midap = 0.
+
     for count, det_id in enumerate(indexs):
         is_positive = False
         detection = class_dets[det_id]
@@ -336,10 +339,15 @@ def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=
 
         pr[count+1, 0] = float(tp) / float(tp + fp)
         pr[count+1, 1] = float(tp) / float(tp + fn)
-    
-    class_ap = float(100*pr_to_ap(pr))
 
-    return class_ap, num_postives, count, pr[count+1, 1]
+        if score > 0.5:
+            midap = pr[count + 1, 0]
+    
+    ap = pr_to_ap(pr)
+    class_ap = float(100 * ap)
+    class_apmid = float(100 * midap)
+
+    return class_ap, num_postives, count, pr[count+1, 1], class_apmid
 
 
 def evaluate_tubes(anno_file, det_file,  subset='val_3', dataset='road', iou_thresh=0.2, metric_type='stiou'):
@@ -387,7 +395,7 @@ def evaluate_tubes(anno_file, det_file,  subset='val_3', dataset='road', iou_thr
             class_dets = get_det_class_tubes(det_tubes, cl_id)
             class_gts = get_gt_class_tubes(gt_tubes, cl_id)
 
-            class_ap, num_postives, count, recall = compute_class_ap(class_dets, class_gts, get_tube_3Diou, iou_thresh, metric_type=metric_type)
+            class_ap, num_postives, count, recall, class_apmid = compute_class_ap(class_dets, class_gts, get_tube_3Diou, iou_thresh, metric_type=metric_type)
 
             recall = recall*100
             sap += class_ap
@@ -571,6 +579,7 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
             ap_strs = []
             re_all = []
             sap = 0.0
+            sapmid = 0.0
             gt_frames = get_gt_frames(final_annots, subset, label_type, dataset)
             t1 = time.perf_counter()
             # logger.info('Time taken to get GT frame for evaluation {}'.format(t0-t1))
@@ -595,24 +604,26 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
                 class_dets = get_det_class_frames(detections[label_type], cl_id, frame_ids, dataset) 
                 t3 = time.perf_counter()
 
-                class_ap, num_postives, count, recall = compute_class_ap(class_dets, class_gts, compute_iou_dict, iou_thresh)
+                class_ap, num_postives, count, recall, class_apmid = compute_class_ap(class_dets, class_gts, compute_iou_dict, iou_thresh)
 
                 recall = recall*100
                 sap += class_ap
+                sapmid += class_apmid
                 ap_all.append(class_ap)
                 re_all.append(recall)
                 ap_str = class_name + ' : ' + str(num_postives) + \
                     ' : ' + str(count) + ' : ' + str(class_ap) +\
-                    ' : ' + str(recall)
+                    ' : ' + str(recall) + ' : apmid ' + str(class_apmid)
                 ap_strs.append(ap_str)
                 t4 = time.perf_counter()
                 # logger.info('Time taken for GT {} DET {} EVAL {} in class {} \n{}'.format(t2-t1, t3-t2, t4-t3, class_name, ap_str))
 
-            mAP = sap/len(classes)
+            mAP = sap / len(classes)
+            midAP = sapmid / len(classes)
         mean_recall = np.mean(np.asarray(re_all))
-        ap_strs.append('\nMean AP:: {:0.2f} mean Recall {:0.2f}'.format(mAP,mean_recall))
-        results[label_type] = {'mAP':mAP, 'ap_all':ap_all, 'ap_strs':ap_strs, 'recalls':re_all, 'mR':mean_recall}
-        logger.info('MAP:: {}'.format(mAP))
+        ap_strs.append('\nMean AP:: {:0.2f}, midAP:: {:0.2f} mean Recall {:0.2f}'.format(mAP, midAP, mean_recall))
+        results[label_type] = {'mAP':mAP, 'midAP':midAP, 'ap_all':ap_all, 'ap_strs':ap_strs, 'recalls':re_all, 'mR':mean_recall}
+        logger.info('MAP:: {}, midAP:: {}'.format(mAP, midAP))
     t1 = time.perf_counter()
     logger.info('Time taken to complete evaluation {}'.format(t1-t0))
     return results
