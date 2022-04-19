@@ -15,6 +15,7 @@ from data.datasets import is_part_of_subsets, get_filtered_tubes, get_filtered_f
 from data.datasets import get_frame_level_annos_ucf24, get_filtered_tubes_ucf24
 from modules.tube_helper import get_tube_3Diou, make_det_tube
 from modules import utils
+from matplotlib import pyplot as plt 
 logger = utils.get_logger(__name__)
 
 def voc_ap(rec, prec, use_07_metric=False):
@@ -284,7 +285,7 @@ def get_gt_class_tubes(tubes, cl_id):
                 class_tubes[video].append(tube)
     return class_tubes
 
-def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=None):
+def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=None, graph=None):
 
     fn = max(1, sum([len(class_gts[iid])
                         for iid in class_gts]))  # false negatives
@@ -342,6 +343,16 @@ def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=
 
         if score > 0.5:
             midap = pr[count + 1, 0]
+            midrc = pr[count + 1, 1]
+
+    if not graph is None:
+        plt.clf()
+        plt.title("Recall-Precision Curve")
+        plt.xlabel("Recall")
+        plt.ylabel("Precision")
+        plt.plot(pr[:, 1], pr[:, 0])
+        plt.scatter(midrc, midap)
+        plt.savefig(graph)
     
     ap = pr_to_ap(pr)
     class_ap = float(100 * ap)
@@ -545,7 +556,7 @@ def eval_framewise_ego_actions(final_annots, detections, subsets, dataset='road'
         return eval_framewise_ego_actions_ucf24(final_annots, detections, subsets)
 
 
-def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road'):
+def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road', graph=None):
     
 
     logger.info('Evaluating frames for datasets '+ dataset)
@@ -607,7 +618,8 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
                 class_dets = get_det_class_frames(detections[label_type], cl_id, frame_ids, dataset) 
                 t3 = time.perf_counter()
 
-                class_ap, num_postives, count, recall, class_apmid = compute_class_ap(class_dets, class_gts, compute_iou_dict, iou_thresh)
+                graph_file = None if graph is None else graph + class_name
+                class_ap, num_postives, count, recall, class_apmid = compute_class_ap(class_dets, class_gts, compute_iou_dict, iou_thresh, graph=graph_file)
 
                 recall = recall*100
                 sap += class_ap

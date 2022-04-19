@@ -237,6 +237,10 @@ def eval_framewise_dets(args, val_dataset):
         args.det_file_name = "{pt:s}/frame-level-dets-{it:02d}-{sq:02d}-{n:d}.pkl".format(pt=args.SAVE_ROOT, it=epoch, sq=args.TEST_SEQ_LEN, n=int(100*args.GEN_NMS))
         result_file = "{pt:s}/frame-ap-results-{it:02d}-{sq:02d}-{n:d}.json".format(pt=args.SAVE_ROOT, it=epoch, sq=args.TEST_SEQ_LEN,n=int(100*args.GEN_NMS))
         
+        graph = "{pt:s}/curve/".format(pt=args.SAVE_ROOT)
+        if not os.path.exists(graph):
+            os.mkdir(graph)
+        
         if args.JOINT_4M_MARGINALS:
             log_file = open("{pt:s}/frame-level-resutls-{it:06d}-{sq:02d}-{n:d}-j4m.log".format(pt=args.SAVE_ROOT, it=epoch, sq=args.TEST_SEQ_LEN, n=int(100*args.GEN_NMS)), "a", 10)
             args.det_file_name = "{pt:s}/frame-level-dets-{it:02d}-{sq:02d}-{n:d}-j4m.pkl".format(pt=args.SAVE_ROOT, it=epoch, sq=args.TEST_SEQ_LEN, n=int(100*args.GEN_NMS))
@@ -256,14 +260,14 @@ def eval_framewise_dets(args, val_dataset):
         else:
             label_types = args.label_types + ['frame_actions']
 
-        if doeval or not os.path.isfile(result_file):
+        if True or (doeval or not os.path.isfile(result_file)):
             results = {}
             
             for subset in args.SUBSETS:
                 if len(subset)<2:
                     continue
 
-                sresults = evaluate_frames(val_dataset.anno_file, args.det_file_name, subset, iou_thresh=args.IOU_THRESH, dataset=args.DATASET)
+                sresults = evaluate_frames(val_dataset.anno_file, args.det_file_name, subset, iou_thresh=args.IOU_THRESH, dataset=args.DATASET, graph=graph)
                 for _, label_type in enumerate(label_types):
                     name = subset + ' & ' + label_type
                     rstr = '\n\nResults for ' + name + '\n'
