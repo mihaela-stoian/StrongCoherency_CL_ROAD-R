@@ -263,13 +263,18 @@ def eval_framewise_dets(args, val_dataset):
                 if len(subset)<2:
                     continue
 
-                sresults = evaluate_frames(val_dataset.anno_file, args.det_file_name, subset, iou_thresh=0.5, dataset=args.DATASET)
+                sresults = evaluate_frames(val_dataset.anno_file, args.det_file_name, subset, iou_thresh=args.IOU_THRESH, dataset=args.DATASET)
                 for _, label_type in enumerate(label_types):
                     name = subset + ' & ' + label_type
                     rstr = '\n\nResults for ' + name + '\n'
                     logger.info(rstr)
                     log_file.write(rstr+'\n')
-                    results[name] = {'mAP': sresults[label_type]['mAP'], 'APs': sresults[label_type]['ap_all']}
+                    results[name] = {
+                        'mAP': sresults[label_type]['mAP'], 
+                        'APs': sresults[label_type]['ap_all'],
+                        'midAP': sresults[label_type]['midAP'], 
+                        'midAPs': sresults[label_type]['apmid_all']
+                    }
                     for ap_str in sresults[label_type]['ap_strs']:
                         logger.info(ap_str)
                         log_file.write(ap_str+'\n')

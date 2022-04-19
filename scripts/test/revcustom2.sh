@@ -1,10 +1,10 @@
 #!/bin/sh
 
 #SBATCH --nodes=1
-#SBATCH --job-name=test_rev_custom
+#SBATCH --job-name=test_rev_custom2
 #SBATCH --mail-type=ALL
 #SBATCH --mail-user=atatomir5@gmail.com
-#SBATCH --partition=long
+#SBATCH --partition=small
 #SBATCH --gres=gpu:1
 
 CONSTRAINTS="${HOME}/3D-RetinaNet/constraints/full"

@@ -579,7 +579,10 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
             ap_strs = []
             re_all = []
             sap = 0.0
+
+            apmid_all = []
             sapmid = 0.0
+
             gt_frames = get_gt_frames(final_annots, subset, label_type, dataset)
             t1 = time.perf_counter()
             # logger.info('Time taken to get GT frame for evaluation {}'.format(t0-t1))
@@ -610,6 +613,8 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
                 sap += class_ap
                 sapmid += class_apmid
                 ap_all.append(class_ap)
+                apmid_all.append(class_apmid)
+
                 re_all.append(recall)
                 ap_str = class_name + ' : ' + str(num_postives) + \
                     ' : ' + str(count) + ' : ' + str(class_ap) +\
@@ -622,7 +627,7 @@ def evaluate_frames(anno_file, det_file, subset, iou_thresh=0.5, dataset='road')
             midAP = sapmid / len(classes)
         mean_recall = np.mean(np.asarray(re_all))
         ap_strs.append('\nMean AP:: {:0.2f}, midAP:: {:0.2f} mean Recall {:0.2f}'.format(mAP, midAP, mean_recall))
-        results[label_type] = {'mAP':mAP, 'midAP':midAP, 'ap_all':ap_all, 'ap_strs':ap_strs, 'recalls':re_all, 'mR':mean_recall}
+        results[label_type] = {'mAP':mAP, 'midAP':midAP, 'ap_all':ap_all, 'apmid_all':apmid_all, 'ap_strs':ap_strs, 'recalls':re_all, 'mR':mean_recall}
         logger.info('MAP:: {}, midAP:: {}'.format(mAP, midAP))
     t1 = time.perf_counter()
     logger.info('Time taken to complete evaluation {}'.format(t1-t0))
