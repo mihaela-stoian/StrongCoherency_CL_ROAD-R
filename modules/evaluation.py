@@ -308,7 +308,8 @@ def compute_class_ap(class_dets, class_gts, match_func, iou_thresh, metric_type=
     indexs = np.argsort(inv_det_scores)
     count = 0
 
-    midap = 0.
+    midap = 1.
+    midrc = 0.
 
     for count, det_id in enumerate(indexs):
         is_positive = False
