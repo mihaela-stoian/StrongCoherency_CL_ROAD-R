@@ -68,7 +68,7 @@ def gen_dets(args, net, val_dataset):
         for nlt in range(len(label_types)):
             for ap_str in ap_strs[nlt]:
                 logger.info(ap_str)
-        ptr_str = '\n{:s} MEANAP:::=> {:0.5f}'.format(label_types[nlt], mAP[nlt])
+            ptr_str = '\n{:s} MEANAP:::=> {:0.5f}'.format(label_types[nlt], mAP[nlt])
         logger.info(ptr_str)
 
         torch.cuda.synchronize()
