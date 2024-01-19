@@ -2,6 +2,9 @@
 This repository contains code for 3D-RetinaNet, which is used a baseline for [ROAD dataset](https://github.com/gurkirt/road-dataset) in dataset release [paper](https://arxiv.org/pdf/2102.11585.pdf). It contains training and evaluation for ROAD and UCF-24 datasets. 
 
 
+```
+git clone git@github.com:mihaela-stoian/StrongCoherencyCCN.git ccn
+```
 
 ## Table of Contents
 - <a href='#requirements'>Requirements</a>
