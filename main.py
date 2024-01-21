@@ -14,7 +14,14 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause, DetectionThreshold, Profiler
+from cloverd.propositional_constraints.clause import Clause
+from cloverd.propositional_constraints.literal import Literal
+from cloverd.propositional_constraints.clauses_group import ClausesGroup
+from cloverd.propositional_constraints.constraints_group import ConstraintsGroup
+from cloverd.propositional_constraints.constraints_layer import ConstraintsLayer
+from cloverd.propositional_constraints.detection_threshold import DetectionThreshold
+from cloverd.propositional_constraints.profiler import Profiler
+
 
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
