@@ -22,8 +22,6 @@ import math
 import torch.nn as nn
 import modules.utils as utils
 
-from ccn import Profiler
-
 logger = utils.get_logger(__name__)
 
 class RetinaNet(nn.Module):
