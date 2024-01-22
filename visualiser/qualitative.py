@@ -83,7 +83,7 @@ def createMs(file_path, num_classes):
 
     return Mplus, Mminus
 
-def draw_ractangle(img_path, bbox, out, th, found_violations=False):
+def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=False):
     # We use batche size = 1
     out = out[0]
 
@@ -119,7 +119,7 @@ def draw_ractangle(img_path, bbox, out, th, found_violations=False):
             weight='bold').set_path_effects([patheffects.Stroke(linewidth=4, foreground='black'), patheffects.Normal()])
 
     ax.add_patch(rect)
-    title = img_path.split('/')[-2:]
+    title = " ".join(img_path.split('/')[-2:]) + f'\nconstrained: {constrained}'
     plt.title(title)
     plt.tight_layout()
     pyplot.show()
