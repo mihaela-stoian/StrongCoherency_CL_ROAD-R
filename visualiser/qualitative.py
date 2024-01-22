@@ -4,6 +4,8 @@ import matplotlib.pyplot as pyplot
 from matplotlib import patches
 from matplotlib import patheffects
 
+
+
 classes = ['Ped', 'Car', 'Cyc', 'Mobike', 'MedVeh', 'LarVeh', 'Bus', 'EmVeh', 'TL', \
            'OthTL', 'Red', 'Amber', 'Green', 'MovAway', 'MovTow', 'Mov', \
            'Brake', 'Stop', 'IncatLeft', 'IncatRht', 'HazLit', 'TurLft', 'TurRht', 'Ovtak', \
@@ -12,7 +14,8 @@ classes = ['Ped', 'Car', 'Cyc', 'Mobike', 'MedVeh', 'LarVeh', 'Bus', 'EmVeh', 'T
 
 import torch
 import numpy as np
-
+# import matplotlib as mpl
+# mpl.rcParams['savefig.pad_inches'] = 0
 
 def find_violations(out, Iplus, Iminus, Mplus, Mminus, data_split, model_type, video_id, img_id, threshold=0.5):
     # the commented code is for the not thresholded violations - we are not interested about it atm
@@ -83,14 +86,14 @@ def createMs(file_path, num_classes):
 
     return Mplus, Mminus
 
-def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=False):
+def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=False, font_size=20):
     # We use batche size = 1
     out = out[0]
 
     img = matplotlib.image.imread(img_path)
     org_height, org_width = img.shape[:2]
 
-    figure, ax = pyplot.subplots(1)
+    figure, ax = pyplot.subplots(1,  frameon=False)
 
     # width = float(bbox[2]) - float(bbox[0])
     # height = float(bbox[3]) - float(bbox[1])
@@ -115,13 +118,26 @@ def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=
     str_labels = '\n'.join([f"{l}" for l, p in zip(labels, preds)])
 
     # ax.text(float(bbox[0]),(float(bbox[1])-50),str(str_labels),verticalalignment='top',color='white',fontsize=10,weight='bold').set_path_effects([patheffects.Stroke(linewidth=4, foreground='black'), patheffects.Normal()])
-    ax.text(float(bbox[0]), (float(bbox[1]) - 10), str(str_labels), multialignment='left', color='white', fontsize=10,
+    if float(bbox[0])<org_width/2:
+        ax.text(float(bbox[0]), (float(bbox[1]) - 10), str(str_labels), multialignment='left', color='white', fontsize=font_size,
             weight='bold').set_path_effects([patheffects.Stroke(linewidth=4, foreground='black'), patheffects.Normal()])
+    else:
+        offset = (max([len(lbl) for lbl in labels]))*1.5*font_size
+        ax.text(float(bbox[0])-offset, float(bbox[1])-10, str(str_labels), multialignment='right', color='white',
+                fontsize=font_size,
+                weight='bold').set_path_effects(
+            [patheffects.Stroke(linewidth=4, foreground='black'), patheffects.Normal()])
 
     ax.add_patch(rect)
     title = " ".join(img_path.split('/')[-2:]) + f'\nconstrained: {constrained}'
-    plt.title(title)
+    # plt.title(title)
+    ax.axes.get_xaxis().set_ticks([])
+    ax.axes.get_yaxis().set_ticks([])
+    ax.get_xaxis().set_visible(False)
+    ax.get_yaxis().set_visible(False)
+    plt.autoscale(tight=True)
     plt.tight_layout()
+
     pyplot.show()
     return figure
 
