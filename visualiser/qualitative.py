@@ -60,33 +60,7 @@ def find_violations(out, Iplus, Iminus, Mplus, Mminus, data_split, model_type, v
 
 
 
-
-# createMs returns two matrices:
-# Mplus: shape [num_constraints, num_labels] --> each row corresponds to a constraint and it has a one if the constraint has positive head at the column number of the label of the head
-# Mminus: shape[num_constraints, num_labels] --> each row corresponds to a constraint and it has a one if the constraint has negative head at the column number of the label of the head
-def createMs(file_path, num_classes):
-    Mplus, Mminus = [], []
-    with open(file_path, 'r') as f:
-        for line in f:
-            split_line = line.split()
-            assert split_line[2] == ':-'
-            mplus = np.zeros(num_classes)
-            mminus = np.zeros(num_classes)
-            if 'n' in split_line[1]:
-                # one indentified that is negative, ignore the 'n' to get the index
-                index = int(split_line[1][1:])
-                mminus[index] = 1
-            else:
-                index = int(split_line[1])
-                mplus[index] = 1
-            Mplus.append(mplus)
-            Mminus.append(mminus)
-    Mplus = np.array(Mplus).transpose()
-    Mminus = np.array(Mminus).transpose()
-
-    return Mplus, Mminus
-
-def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=False, font_size=20):
+def draw_rectangle(img_path, bbox, out, th, found_violations=False, constrained=False, font_size=20):
     # We use batche size = 1
     out = out[0]
 
@@ -104,7 +78,7 @@ def draw_ractangle(img_path, bbox, out, th, found_violations=False, constrained=
     bbox[3] = (float(bbox[3]) / 512) * org_height  # width x1
 
     rect = patches.Rectangle((float(bbox[0]), float(bbox[1])), float(bbox[2] - bbox[0]), float(bbox[3] - bbox[1]),
-                             edgecolor='r' if found_violations else 'g', facecolor="none", linewidth=2)
+                             edgecolor='r', facecolor="none", linewidth=4)
 
     # Old incorrect
     # rect = patches.Rectangle((float(bbox[0]),float(bbox[1])),float(bbox[2]),float(bbox[3]), edgecolor='r', facecolor="none", linewidth=2)
