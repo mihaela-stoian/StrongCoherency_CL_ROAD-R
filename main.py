@@ -277,30 +277,14 @@ def main():
     logger.info(f"Clipping the gradient norm to {args.clip}")
 
     if args.CCN_CONSTRAINTS != '':
-        constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
-        clauses = ClausesGroup.from_constraints_group(constraints)
-        logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
-
-        # forced = False
-        # clauses = clauses.add_detection_label(forced)
-        # logger.info(f"Shifted atoms and added n0 to all clauses (forced {forced})")
-
-        if 'custom' in args.CCN_CENTRALITY:
-            order = args.CCN_CUSTOM_ORDER.split(',')
-            centrality = np.array([int(nr) for nr in order])
-            if 'rev' in args.CCN_CENTRALITY:
-                centrality = centrality[::-1]
-        else:
-            centrality = args.CCN_CENTRALITY
-
-        strata = clauses.stratify(centrality)
-        logger.info(f"Generated {len(strata)} strata of constraints with {centrality} centrality")
-
-        clayer = ConstraintsLayer(strata, args.ccn_num_classes)
+        clayer = ConstraintsLayer(num_classes=args.ccn_num_classes,
+                                  constraints=args.CCN_CONSTRAINTS,
+                                  ordering_choice=args.CCN_CENTRALITY,
+                                  custom_ordering=args.CCN_CUSTOM_ORDER)
         logger.info(str(clayer))
     else:
         logger.info("Using the plain model with empty CCN layer")
-        clayer = ConstraintsLayer([], args.ccn_num_classes)
+        clayer = ConstraintsLayer(num_classes=args.ccn_num_classes, constraints=[])
 
     ## Build neural network (with CCN layer)
 
