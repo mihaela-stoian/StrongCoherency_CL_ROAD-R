@@ -14,10 +14,6 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from pishield.propositional_requirements.clause import Clause
-from pishield.propositional_requirements.literal import Literal
-from pishield.propositional_requirements.clauses_group import ClausesGroup
-from pishield.propositional_requirements.constraints_group import ConstraintsGroup
 from pishield.propositional_requirements.shield_layer import ShieldLayer
 from pishield.propositional_requirements.detection_threshold import DetectionThreshold
 from pishield.propositional_requirements.profiler import Profiler
@@ -278,13 +274,13 @@ def main():
 
     if args.CCN_CONSTRAINTS != '':
         clayer = ShieldLayer(num_classes=args.ccn_num_classes,
-                             constraints=args.CCN_CONSTRAINTS,
+                             requirements=args.CCN_CONSTRAINTS,
                              ordering_choice=args.CCN_CENTRALITY,
                              custom_ordering=args.CCN_CUSTOM_ORDER)
         logger.info(str(clayer))
     else:
         logger.info("Using the plain model with empty CCN layer")
-        clayer = ShieldLayer(num_classes=args.ccn_num_classes, constraints=[])
+        clayer = ShieldLayer(num_classes=args.ccn_num_classes, requirements=[])
 
     ## Build neural network (with CCN layer)
 
