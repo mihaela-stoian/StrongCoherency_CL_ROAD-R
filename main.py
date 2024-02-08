@@ -14,13 +14,13 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from pishield.propositional_constraints.clause import Clause
-from pishield.propositional_constraints.literal import Literal
-from pishield.propositional_constraints.clauses_group import ClausesGroup
-from pishield.propositional_constraints.constraints_group import ConstraintsGroup
-from pishield.propositional_constraints.constraints_layer import ConstraintsLayer
-from pishield.propositional_constraints.detection_threshold import DetectionThreshold
-from pishield.propositional_constraints.profiler import Profiler
+from pishield.propositional_requirements.clause import Clause
+from pishield.propositional_requirements.literal import Literal
+from pishield.propositional_requirements.clauses_group import ClausesGroup
+from pishield.propositional_requirements.constraints_group import ConstraintsGroup
+from pishield.propositional_requirements.shield_layer import ShieldLayer
+from pishield.propositional_requirements.detection_threshold import DetectionThreshold
+from pishield.propositional_requirements.profiler import Profiler
 
 
 def str2bool(v):
@@ -277,14 +277,14 @@ def main():
     logger.info(f"Clipping the gradient norm to {args.clip}")
 
     if args.CCN_CONSTRAINTS != '':
-        clayer = ConstraintsLayer(num_classes=args.ccn_num_classes,
-                                  constraints=args.CCN_CONSTRAINTS,
-                                  ordering_choice=args.CCN_CENTRALITY,
-                                  custom_ordering=args.CCN_CUSTOM_ORDER)
+        clayer = ShieldLayer(num_classes=args.ccn_num_classes,
+                             constraints=args.CCN_CONSTRAINTS,
+                             ordering_choice=args.CCN_CENTRALITY,
+                             custom_ordering=args.CCN_CUSTOM_ORDER)
         logger.info(str(clayer))
     else:
         logger.info("Using the plain model with empty CCN layer")
-        clayer = ConstraintsLayer(num_classes=args.ccn_num_classes, constraints=[])
+        clayer = ShieldLayer(num_classes=args.ccn_num_classes, constraints=[])
 
     ## Build neural network (with CCN layer)
 
