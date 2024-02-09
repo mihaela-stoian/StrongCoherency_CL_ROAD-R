@@ -1,26 +1,36 @@
 # Strongly Coherent Constraint Layers for ROAD-R
-This repository contains baseline code for the first and second tasks of the [ROAD-R Challenge](https://sites.google.com/view/road-r/).
-The code is built on top of [3D-RetinaNet for ROAD](https://github.com/gurkirt/road-dataset).
+This repository contains code used for running the ROAD-R experiments in the "CCN+: A Neuro-Symbolic Framework for Deep Learning with Requirements" [paper](https://www.sciencedirect.com/science/article/pii/S0888613X24000112?dgcid=rss_sd_all).
+The code is built on top of [Propositional Constraints Layers for ROAD](https://github.com/atatomir/3D-RetinaNet), which provides the main codebase for the propositional constraints layers and experiments in CCN+, and extends it with support code for strong coherency, as further presented in the CCN+ paper.
+It also uses [PiShield](https://github.com/mihaela-stoian/PiShield) for integrating the constraint layer into the neural network models.
 
-The task requires that the models' predictions are compliant with the 243 requirements provided in `constraints/requirements.txt`.
+```
+@article{giunchiglia2024ccn_plus,
+title = {CCN+: A neuro-symbolic framework for deep learning with requirements},
+journal = {International Journal of Approximate Reasoning},
+pages = {109124},
+year = {2024},
+author = {Eleonora Giunchiglia and Alex Tatomir and Mihaela Catalina Stoian and Thomas Lukasiewicz},
+}
+```
+
 
 ## Table of Contents
 - <a href='#dep'>Dependencies and data preparation</a>
 - <a href='#training'>Training</a>
 - <a href='#testing'>Testing</a>
-- <a href='#prostprocessing'>Post-processing</a>
 
 
 
 ## Dependencies and data preparation
-This repository requires [CLOVERD](https://github.com/mihaela-stoian/CLOVERD).
-Alternatively, the code for building constraint layers [strongly coherent](https://github.com/mihaela-stoian/StrongCoherencyCCN) with requirements can be obtained by:
+This repository requires [PiShield](https://github.com/mihaela-stoian/PiShield).
+Alternatively, the code for building strongly coherent constraint layers [strongly coherent](https://github.com/mihaela-stoian/StrongCoherencyCCN) with requirements can be obtained by:
 ```
 git clone git@github.com:mihaela-stoian/StrongCoherencyCCN.git ccn
 ```
 
 For the dataset preparation and packages required to train the models, please see the [Requirements](https://github.com/gurkirt/3D-RetinaNet#requirements) section from 3D-RetinaNet for ROAD.  
 
+The baseline models are from [3D-RetinaNet for ROAD](https://github.com/gurkirt/3D-RetinaNet#pytorch-and-weights), which provides the baseline models for ROAD.
 To download the pretrained weights, please see the end of the [Performance](https://github.com/gurkirt/3D-RetinaNet#performance) section from 3D-RetinaNet for ROAD.
 
 ## Training
