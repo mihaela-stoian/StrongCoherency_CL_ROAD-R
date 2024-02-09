@@ -1,5 +1,4 @@
 
-import os
 import sys
 import torch
 import argparse
@@ -14,7 +13,10 @@ from gen_dets import gen_dets, eval_framewise_dets
 from tubes import build_eval_tubes
 from val import val
 
-from ccn import ConstraintsGroup, ClausesGroup, ConstraintsLayer, Literal, Clause, DetectionThreshold, Profiler
+from pishield.propositional_requirements.shield_layer import ShieldLayer
+from pishield.propositional_requirements.detection_threshold import DetectionThreshold
+from pishield.propositional_requirements.profiler import Profiler
+
 
 def str2bool(v):
     return v.lower() in ("yes", "true", "t", "1")
@@ -270,30 +272,14 @@ def main():
     logger.info(f"Clipping the gradient norm to {args.clip}")
 
     if args.CCN_CONSTRAINTS != '':
-        constraints = ConstraintsGroup(args.CCN_CONSTRAINTS)
-        clauses = ClausesGroup.from_constraints_group(constraints)
-        logger.info(f"Fetched {len(constraints)} constraints from {args.CCN_CONSTRAINTS}")
-
-        # forced = False
-        # clauses = clauses.add_detection_label(forced)
-        # logger.info(f"Shifted atoms and added n0 to all clauses (forced {forced})")
-
-        if 'custom' in args.CCN_CENTRALITY:
-            order = args.CCN_CUSTOM_ORDER.split(',')
-            centrality = np.array([int(nr) for nr in order])
-            if 'rev' in args.CCN_CENTRALITY:
-                centrality = centrality[::-1]
-        else:
-            centrality = args.CCN_CENTRALITY
-
-        strata = clauses.stratify(centrality)
-        logger.info(f"Generated {len(strata)} strata of constraints with {centrality} centrality")
-
-        clayer = ConstraintsLayer(strata, args.ccn_num_classes)
+        clayer = ShieldLayer(num_classes=args.ccn_num_classes,
+                             requirements=args.CCN_CONSTRAINTS,
+                             ordering_choice=args.CCN_CENTRALITY,
+                             custom_ordering=args.CCN_CUSTOM_ORDER)
         logger.info(str(clayer))
     else:
         logger.info("Using the plain model with empty CCN layer")
-        clayer = ConstraintsLayer([], args.ccn_num_classes)
+        clayer = ShieldLayer(num_classes=args.ccn_num_classes, requirements=[])
 
     ## Build neural network (with CCN layer)
 
