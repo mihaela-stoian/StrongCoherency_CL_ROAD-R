@@ -1,7 +1,6 @@
 # Strongly Coherent Constraint Layers for ROAD-R
 This repository contains code used for running the ROAD-R experiments in the "CCN+: A Neuro-Symbolic Framework for Deep Learning with Requirements" [paper](https://www.sciencedirect.com/science/article/pii/S0888613X24000112?dgcid=rss_sd_all).
-The code is built on top of [Propositional Constraints Layers for ROAD](https://github.com/atatomir/3D-RetinaNet), which provides the main codebase for the propositional constraints layers and experiments in CCN+, and extends it with support code for strong coherency, as further presented in the CCN+ paper.
-It also uses [PiShield](https://github.com/mihaela-stoian/PiShield) for integrating the constraint layer into the neural network models.
+The code is built on top of https://github.com/atatomir/3D-RetinaNet, which provides the main codebase for the propositional constraints layers and experiments in CCN+, and extends it with support code for strong coherency, as further presented in the CCN+ paper.
 
 ```
 @article{giunchiglia2024ccn_plus,
@@ -12,6 +11,8 @@ year = {2024},
 author = {Eleonora Giunchiglia and Alex Tatomir and Mihaela Catalina Stoian and Thomas Lukasiewicz},
 }
 ```
+
+**Differently from the previous repository, it uses [PiShield](https://github.com/mihaela-stoian/PiShield) for integrating the constraint layer into the neural network models.**
 
 
 ## Table of Contents
